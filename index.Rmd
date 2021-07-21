@@ -76,7 +76,9 @@ opts_chunk$set(message=FALSE, warning=FALSE, eval=TRUE,
 
 ## `r emoji("dart")` Motivation {-}
 
-The book is written as a guide for extracting, analyzing and visualizing mutational signatures with R/CRAN package **sigminer**. In this book, we assume you have already known how to operate [R](http://cran.r-project.org/).
+The book is written as a guide for extracting, analyzing and visualizing mutational signatures with R/CRAN package **sigminer**. The [*README*](https://github.com/ShixiangWang/sigminer/blob/master/README.md) and [*Reference list*](https://shixiangwang.github.io/sigminer/reference/index.html) of **sigminer** have given users overview and the very details of specific points (e.g., functions) in **sigminer**. This book will help users focus on quickly getting the mutational signature analysis done to make life easy. 
+
+In this book, we assume you have already known how to operate [R](http://cran.r-project.org/).
 
 ## `r emoji("memo")` Citation {-}
 
@@ -132,8 +134,9 @@ The book’s source code is hosted on GitHub, at <https://github.com/ShixiangWan
 
 ## `r emoji("ant")` Bug report or feature request {-}
 
-If you h
+If you find any bugs or want to have a new feature, please [file an issue](https://github.com/ShixiangWang/sigminer/issues/new).
 
 
 ## `r emoji("cactus")` Acknowlegment {-}
 
+I built this book website by imitating [*Biomedical knowledge mining using GOSemSim and clusterProfiler*](https://github.com/YuLab-SMU/biomedical-knowledge-mining-book) and reusing its configurations, I would like to thank [Guangchuang Yu](https://github.com/GuangchuangYu) here.

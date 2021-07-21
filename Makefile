@@ -8,7 +8,7 @@ gitbook:
 	Rscript -e 'library(bookdown); render_book("index.Rmd", "gitbook")'
 
 pdfbook:
-	Rscript -e 'library(bookdown); render_book("index.Rmd", "pdf_book")'
+	Rscript -e 'library(bookdown); render_book("index.Rmd", "bookdown::pdf_book")'
 
 epub:
 	Rscript -e 'library(bookdown); render_book("index.Rmd", "epub_book")'
