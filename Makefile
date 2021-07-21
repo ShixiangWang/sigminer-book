@@ -20,9 +20,9 @@ clean:
 #cover:
 #	Rscript -e 'source("book-cover.R")'
 
+# https://gist.github.com/cobyism/4730490
 publish:
-	cd gh-pages;\
 	git add .;\
-	git commit -m 'update';\
-	git push -u origin gh-pages
+	git commit -m 'update site';\
+	git subtree push --prefix gh-pages origin gh-pages
 	
