@@ -1,7 +1,7 @@
 # This file copy from https://github.com/YuLab-SMU/biomedical-knowledge-mining-book/blob/master/Makefile
 
 bs4:
-	rm -rf gh-pages/libs;\
+	rm -rf docs/libs;\
 	Rscript -e 'library(bookdown); render_book("index.Rmd", "bs4_book")'
 
 gitbook:
