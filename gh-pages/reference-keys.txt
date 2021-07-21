@@ -1,4 +1,0 @@
-fig:nice-fig
-tab:nice-tab
-intro
-mutational-signatures
