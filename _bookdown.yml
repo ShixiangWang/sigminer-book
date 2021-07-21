@@ -1,0 +1,10 @@
+book_filename: "sigminer"
+chapter_name: "Chapter "
+output_dir: gh-pages
+delete_merged_file: true
+
+# rmd_files: ["index.Rmd",
+#   "01_overview_semantic_similarity.Rmd",
+#   "02_GOSimSim.Rmd",
+#   "A-app-faq.Rmd",
+#   "B-references.Rmd"]
