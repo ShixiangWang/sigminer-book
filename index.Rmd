@@ -1,6 +1,8 @@
 ---
-title: 'Biomedical Knowledge Mining using GOSemSim and clusterProfiler'
-author: Guangchuang Yu
+title: 'Extract, Analyze and Visualize Mutational Signatures with Sigminer'
+author: 
+  - Shixiang Wang, PhD (Sun Yat-sen University Cancer Center)
+  - Xue-Song Liu, PhD (ShanghaiTech University)
 date: "`r Sys.Date()`"
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -20,9 +22,9 @@ monofontoptions: "Scale=0.7"
 linestretch: 1.5
 toc-depth: 2
 link-citations: yes
-github-repo: YuLab-SMU/biomedical-knowledge-mining-book
-twiter-handle: guangchuangyu
-description: "Biomedical knowledge mining using GOSemSim and clusterProfiler."
+github-repo: shixiangwang/sigminer-book
+twiter-handle: WangShxiang
+description: "Extract, analyze and visualize mutational signatures with sigminer."
 documentclass: book
 papersize: A4
 classoption: twoside
@@ -45,88 +47,93 @@ Githubpkg <- function (user, pkg) {
     fmt <- "[%s](%s/%s/%s)"
     sprintf(fmt, pkg, gh, user, pkg)
 }
-badge_version <- function(pkg, color="green") {
+badge_version <- function(pkg, color="green", bioc = FALSE, user = NULL) {
     v <- packageVersion(pkg)
-    url <- paste0("https://github.com/YuLab-SMU/", pkg)
+    url <- if (is.null(user)) {
+      if (bioc) Biocpkg(pkg) else CRANpkg(pkg)
+    } else {
+      Githubpkg(user, pkg)
+    }
+    
     badger::badge_custom(pkg, v, color, url)
 }
+
+
+library(emojifont)
 library(knitr)
 opts_chunk$set(message=FALSE, warning=FALSE, eval=TRUE, 
     echo=TRUE, cache=TRUE, dev="CairoPNG", out.width="95%")
-library(emojifont)
-library(org.Hs.eg.db)
-library(clusterProfiler)
-#options(clusterProfiler.download.method = "wget")
 ```
 
 
 # `r emoji("book")` Introduction {-}
 
-`r badge_version("ChIPseeker")`
-`r badge_version("clusterProfiler")`
-`r badge_version("DOSE")`
-`r badge_version("enrichplot")`
-`r badge_version("GOSemSim")`
-`r badge_version("meshes")`
-`r badge_version("ReactomePA")`
+`r badge_version("UCSCXenaTools")`
+`r badge_version("sigminer")`
+`r badge_version("maftools", bioc = TRUE)`
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FShixiangWang%2Fsigminer-book&count_bg=%2379C83D&title_bg=%23555555&icon=americanairlines.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-
-
-
-<!--
-In recently years, high-throughput experimental techniques such as
-microarray, RNA-Seq and mass spectrometry can detect cellular
-molecules at systems-level. These kinds of analyses generate huge
-quantitaties of data, which need to be given a biological
-interpretation. A commonly used approach is via clustering in the gene
-dimension for grouping different genes based on their similarities[@yu2010].
-To search for shared functions among genes, a common way is to
-incorporate the biological knowledge, such as Gene Ontology (GO) and
-Kyoto Encyclopedia of Genes and Genomes (KEGG), for identifying
-predominant biological themes of a collection of genes.
-After clustering analysis, researchers not only want to determine
-whether there is a common theme of a particular gene cluster, but also
-to compare the biological themes among gene clusters. The manual step
-to choose interesting clusters followed by enrichment analysis on each
-selected cluster is slow and tedious. To bridge this gap, we designed
-[clusterProfiler](https://www.bioconductor.org/packages/clusterProfiler)[@yu2012], for comparing and visualizing functional
-profiles among gene clusters.
--->
 
 ## `r emoji("dart")` Motivation {-}
 
-The book is meant as a guide for mining biological knowledge to elucidate or interpret molecular mechanisms using a suite of R packages, including `r Biocpkg("ChIPseeker")`, `r Biocpkg("clusterProfiler")`, `r Biocpkg("DOSE")`, `r Biocpkg("enrichplot")`, `r Biocpkg("GOSemSim")`, `r Biocpkg("meshes")` and `r Biocpkg("ReactomePA")`. Hence, if you are starting to read this book, we assume you have a working knowledge of how to use R.
+The book is written as a guide for extracting, analyzing and visualizing mutational signatures with R/CRAN package **sigminer**. In this book, we assume you have already known how to operate [R](http://cran.r-project.org/).
 
 ## `r emoji("memo")` Citation {-}
 
-If you use the software suite in published research, please cite the most appropriate paper(s) from this list:
+If you use **sigminer** or its pipeline version **sigflow** in published research, please cite the most appropriate paper(s):
 
-1. T Wu<sup>#</sup>, E Hu<sup>#</sup>, S Xu, M Chen, P Guo, Z Dai, T Feng, L Zhou, W Tang, L Zhan, X Fu, S Liu, X Bo<sup>\*</sup>, and **G Yu**<sup>\*</sup>. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. **_The Innovation_**. 2021, accepted.
-doi: [10.1016/j.xinn.2021.100141](https://doi.org/10.1016/j.xinn.2021.100141)
-2. __G Yu__^\*^. Gene Ontology Semantic Similarity Analysis Using GOSemSim. In: Kidder B. (eds) Stem Cell Transcriptional Networks. __*Methods in Molecular Biology*__. 2020, 2117:207-215. Humana, New York, NY.
-doi: [10.1007/978-1-0716-0301-7_11](https://doi.org/10.1007/978-1-0716-0301-7_11)
-3. __G Yu__^\*^. Using meshes for MeSH term enrichment and semantic analyses. __*Bioinformatics*__. 2018, 34(21):3766–3767.
-doi: [10.1093/bioinformatics/bty410](https://doi.org/10.1093/bioinformatics/bty410)
-4. __G Yu__, QY He^\*^. ReactomePA: an R/Bioconductor package for reactome pathway analysis and visualization. __*Molecular BioSystems*__. 2016, 12(2):477-479.
-doi: [10.1039/C5MB00663E](https://doi.org/10.1039/C5MB00663E)
-5. __G Yu__^\*^, LG Wang, and QY He^\*^. ChIPseeker: an R/Bioconductor package for ChIP peak annotation, comparison and visualization. __*Bioinformatics*__. 2015, 31(14):2382-2383.
-doi: [10.1093/bioinformatics/btv145](https://doi.org/10.1093/bioinformatics/btv145)
-6. __G Yu__^\*^, LG Wang, GR Yan, QY He^\*^. DOSE: an R/Bioconductor package for Disease Ontology Semantic and Enrichment analysis. __*Bioinformatics*__. 2015, 31(4):608-609.
-doi: [10.1093/bioinformatics/btu684](https://doi.org/10.1093/bioinformatics/btu684)
-7. __G Yu__, LG Wang, Y Han and QY He^\*^. clusterProfiler: an R package for comparing biological themes among gene clusters. __*OMICS: A Journal of Integrative Biology*__. 2012, 16(5):284-287.
-doi: [10.1089/omi.2011.0118](https://doi.org/10.1089/omi.2011.0118)
-8. __G Yu__, F Li, Y Qin, X Bo^\*^, Y Wu, S Wang^\*^. GOSemSim: an R package for measuring semantic similarity among GO terms and gene products. __*Bioinformatics*__. 2010, 26(7):976-978.
-doi: [10.1093/bioinformatics/btq064](https://doi.org/10.1093/bioinformatics/btq064)
+1. **Wang, S.**, Li, H., Song, M., Tao, Z., Wu, T., He, Z., ... & Liu, X. S. (2021). Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes. ___PLoS genetics___, 17(5), e1009557. <https://doi.org/10.1371/journal.pgen.1009557>
+2. **Wang, S.**, Tao, Z., Wu, T., & Liu, X. S. (2021). Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis. ___Bioinformatics___, 37(11), 1590-1592. <https://doi.org/10.1093/bioinformatics/btaa895>
 
+Please properly cite the following references when you are using any
+corresponding features. The references are also listed in the function
+documentation. Very thanks to the works, **sigminer** cannot be created
+without the giants.
 
+1.  Mayakonda, Anand, et al. “Maftools: efficient and comprehensive
+    analysis of somatic variants in cancer.” ___Genome research___ 28.11
+    (2018): 1747-1756.
+2.  Gaujoux, Renaud, and Cathal Seoighe. “A Flexible R Package for
+    Nonnegative Matrix Factorization.”" ___BMC Bioinformatics___ 11, no. 1
+    (December 2010).
+3.  Wickham, Hadley. "ggplot2." ___Wiley Interdisciplinary Reviews: Computational Statistics___ 3.2 (2011): 180-185.
+4.  Kim, Jaegil, et al. “Somatic ERCC2 mutations are associated with a
+    distinct genomic signature in urothelial tumors.” ___Nature Genetics___
+    48.6 (2016): 600.
+5.  Alexandrov, Ludmil B., et al. “Deciphering signatures of mutational
+    processes operative in human cancer.” ___Cell Reports___ 3.1 (2013):
+    246-259.
+6.  Degasperi, Andrea, et al. “A practical framework and online tool for
+    mutational signature analyses show intertissue variation and driver
+    dependencies.” ___Nature Cancer___ 1.2 (2020): 249-263.
+7.  Alexandrov, Ludmil B., et al. “The repertoire of mutational
+    signatures in human cancer.” ___Nature___ 578.7793 (2020): 94-101.
+8.  Macintyre, Geoff, et al. “Copy number signatures and mutational
+    processes in ovarian carcinoma.” ___Nature Genetics___ 50.9 (2018): 1262.
+9.  Tan, Vincent YF, and Cédric Févotte. “Automatic relevance
+    determination in nonnegative matrix factorization with the/spl
+    beta/-divergence.” ___IEEE Transactions on Pattern Analysis and Machine Intelligence___ 35.7 (2012): 1592-1605.
+10. Bergstrom EN, Huang MN, Mahto U, Barnes M, Stratton MR, Rozen SG,
+    Alexandrov LB: SigProfilerMatrixGenerator: a tool for visualizing
+    and exploring patterns of small mutational events. ___BMC Genomics___
+    2019, 20:685
+    <https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-6041-2>
 
 ## `r emoji("books")` Book structure {-}
 
-+ Part 1 (Semantic similarity analysis) describes `r Biocpkg("GOSemSim")`, `r Biocpkg("DOSE")` and `r Biocpkg("meshes")` packages for measuring semantic similarity of genes or gene products based on Gene Ontology, Disease Ontology and Medical Subject Headings.
-+ Part 2 (Enrichment analysis) introduces over-reprensentation analysis and gene set enrichment analysis using `r Biocpkg("clusterProfiler")` (supports GO, KEGG, MSigDb, WikiPathway, and many others via universal interface), `r Biocpkg("DOSE")` (DO, Disease-Gene Network, Network of Cancer Genes), `r Biocpkg("meshes")` (MeSH), and `r Biocpkg("ReactomePA")` (Reactome pathway). Functional enrichment analysis of Genomic coordination is supported via `r Biocpkg("ChIPseeker")` and comparison among multiple conditions is also supported by `r Biocpkg("clusterProfiler")`. We implemented a number of visualization methods in the `r Biocpkg("enrichplot")` package to help users to interpret their results. 
-+ Part 3 (Miscellaneous topics) describes useful utilities including translating gene IDs and manipulating enrichment results.
++ Part 1 (Background and Prerequisite) describes the basic concepts of mutational signature and how to install/load **sigminer**. 
++ Part 2 (Workflows) introduces how to prepare your input data and run mutational signature analysis for different mutation data types (SBS, DBS, INDEL, Genome rearrangement, CNV) with different methods provided by **sigminer**.
++ Part 3 (Miscellaneous topics) describes useful utilities including builtin datasets, SBS signature conversion.
 
 ## `r emoji("sparkling_heart")` Want to help? {-}
 
 
-The book’s source code is hosted on GitHub, at <https://github.com/YuLab-SMU/biomedical-knowledge-mining-book>. Any feedback on the book is very welcome. Feel free to [open an issue](https://github.com/YuLab-SMU/biomedical-knowledge-mining-book/issues/new) on GitHub or send me a pull request if you notice typos or other issues (I'm not a native English speaker ;) ).
+The book’s source code is hosted on GitHub, at <https://github.com/ShixiangWang/sigminer-book>. Any feedback on the book is very welcome. Feel free to [open an issue](https://github.com/ShixiangWang/sigminer-book/issues/new) on GitHub or send me a pull request if you notice typos or other issues (I'm not a native English speaker ;) ).
+
+## `r emoji("ant")` Bug report or feature request {-}
+
+If you h
+
+
+## `r emoji("cactus")` Acknowlegment {-}
+
