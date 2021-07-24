@@ -1,4 +1,9 @@
-fig:nice-fig
-tab:nice-tab
+fig:unnamed-chunk-2
+fig:unnamed-chunk-3
+fig:unnamed-chunk-4
 intro
 mutational-signatures
+biological-significance-of-mutational-signature
+package-installation
+package-loading
+package-references

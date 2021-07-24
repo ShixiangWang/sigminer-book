@@ -55,177 +55,76 @@
 <span class="header-section-number">1.1</span> Mutational signatures<a class="anchor" aria-label="anchor" href="#mutational-signatures"><i class="fas fa-link"></i></a>
 </h2>
 <p>Underlying cancer hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions <span class="citation">(<a href="references.html#ref-hanahanHallmarksCancerNext2011" role="doc-biblioref">Hanahan 2011</a>)</span>. Cancer genomes typically harbors more than 1,000 mutations in small (e.g., point mutations, short insertions and deletions) and large scale (e.g., copy number variations, rearrangements). Genomic contexts where mutation may accumulate in response to both endogenous processes and exogeneous exposures. In recent years, computational approaches (typically non-negative matrix factorization (NMF)) have been applied to the mutation catalog analysis of human/mouse tumors to detect characteristic mutational patterns, also known as <strong>“mutational signatures”</strong>.</p>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pressure</span>, type <span class="op">=</span> <span class="st">'b'</span>, pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span id="fig:nice-fig"></span>
-<img src="sigminer_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%"><p class="caption">
-Figure 1.1: Here is a nice figure!
+<div id="biological-significance-of-mutational-signature" class="section level3" number="1.1.1">
+<h3>
+<span class="header-section-number">1.1.1</span> Biological significance of mutational signature<a class="anchor" aria-label="anchor" href="#biological-significance-of-mutational-signature"><i class="fas fa-link"></i></a>
+</h3>
+<p>To better illustrate the biological significance of mutational signatures, we show some
+well organized figures here.</p>
+<div class="figure">
+<span id="fig:unnamed-chunk-2"></span>
+<img src="fig/sbs_signature_overview_nat_review2.png" alt="The illustration of SBS signature, fig source: https://www.nature.com/articles/nrg3729" width="80%"><p class="caption">
+Figure 1.1: The illustration of SBS signature, fig source: <a href="https://www.nature.com/articles/nrg3729" class="uri">https://www.nature.com/articles/nrg3729</a>
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
+<div class="figure">
+<span id="fig:unnamed-chunk-3"></span>
+<img src="fig/sbs_signature_overview.png" alt="The illustration of SBS signature (2), fig source: https://www.nature.com/articles/s41467-018-05228-y" width="95%"><p class="caption">
+Figure 1.2: The illustration of SBS signature (2), fig source: <a href="https://www.nature.com/articles/s41467-018-05228-y" class="uri">https://www.nature.com/articles/s41467-018-05228-y</a>
+</p>
+</div>
+<p>SBS (short for single base substitution) signature is a famous type of mutational signature. SBS signatures are well studied and related to single-strand changes, typically caused by defective DNA repair.
+Common etiologies contain aging, defective DNA mismatch repair, smoking, ultraviolet light exposure and <a href="https://en.wikipedia.org/wiki/APOBEC">APOBEC</a>.</p>
+<p>Currently, all SBS signatures are summarized in COSMIC database, including two versions: <a href="https://cancer.sanger.ac.uk/cosmic/signatures_v2">v2</a> and <a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/">v3</a>.</p>
+<p>Recently, <span class="citation"><a href="references.html#ref-alexandrov2020repertoire" role="doc-biblioref">Alexandrov et al.</a> (<a href="references.html#ref-alexandrov2020repertoire" role="doc-biblioref">2020</a>)</span> extends the concept of mutational signature to three types of alteration: SBS, DBS (short for doublet base substitution) and INDEL (short for short insertion and deletion).
+All reported common signatures are recorded in COSMIC (<a href="https://cancer.sanger.ac.uk/cosmic/signatures/" class="uri">https://cancer.sanger.ac.uk/cosmic/signatures/</a>), so we usually call them <strong>COSMIC signatures</strong>.</p>
+<div class="figure">
+<span id="fig:unnamed-chunk-4"></span>
+<img src="fig/cn_signature_overview.png" alt="The illustration of copy number signatures, fig source: https://www.nature.com/articles/s41588-018-0212-y" width="95%"><p class="caption">
+Figure 1.3: The illustration of copy number signatures, fig source: <a href="https://www.nature.com/articles/s41588-018-0212-y" class="uri">https://www.nature.com/articles/s41588-018-0212-y</a>
+</p>
+</div>
+<p>Copy number signatures are less studied and many works are still to be done. The introduction is described in Chapter <a href="#cnsig"><strong>??</strong></a>.</p>
+<blockquote>
+<p>Genome rearrangement signatures are limited to whole genome sequencing data and also less studied, the implementation is not available in current version of Sigminer. We are happy to accept a PR if you are interested in create an extension function to Sigminer.
+More details about mutational signatures you can read the <a href="https://en.wikipedia.org/wiki/Mutational_signatures">wiki page</a>.</p>
+</blockquote>
+</div>
+</div>
+<div id="package-installation" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Package installation<a class="anchor" aria-label="anchor" href="#package-installation"><i class="fas fa-link"></i></a>
+</h2>
+<p>The stable release version of <strong>sigminer</strong> package can be installed from the CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"BiocManager"</span><span class="op">)</span>
+<span class="fu">BiocManager</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/BiocManager/man/install.html">install</a></span><span class="op">(</span><span class="st">"sigminer"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p>Set <code>dependencies = TRUE</code> is recommended because many packages are required for accessing full features provided by <strong>sigminer</strong>.
+The development version of <strong>sigminer</strong> package can be installed from Github or Gitee after installing CRAN version <strong>sigminer</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">20</span><span class="op">)</span>, caption <span class="op">=</span> <span class="st">'Here is a nice table!'</span>,
-  booktabs <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
-<div class="inline-table"><table class="table table-sm">
-<caption>
-<span id="tab:nice-tab">Table 1.1: </span>Here is a nice table!</caption>
-<thead><tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table></div>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref"><strong>R-bookdown?</strong></a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(<a href="references.html#ref-xie2015" role="doc-biblioref">Xie 2015</a>)</span>.</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="co"># From GitHub</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"ShixiangWang/sigminer"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co"># From Gitee</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_git.html">install_git</a></span><span class="op">(</span><span class="st">"https://gitee.com/ShixiangWang/sigminer"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<p>If you see notification of package update, please keep this package up to date.</p>
+</div>
+<div id="package-loading" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Package loading<a class="anchor" aria-label="anchor" href="#package-loading"><i class="fas fa-link"></i></a>
+</h2>
+<p>To load package, run:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ShixiangWang/sigminer">sigminer</a></span><span class="op">)</span></code></pre></div>
+<p>More info about <strong>sigminer</strong> can be given as:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/hello.html">hello</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="package-references" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Package references<a class="anchor" aria-label="anchor" href="#package-references"><i class="fas fa-link"></i></a>
+</h2>
+<p>All datasets/functions are well organized and documented at <a href="https://shixiangwang.github.io/sigminer/reference/index.html" class="uri">https://shixiangwang.github.io/sigminer/reference/index.html</a> (<a href="https://shixiangwang.gitee.io/sigminer/reference/index.html" class="uri">https://shixiangwang.gitee.io/sigminer/reference/index.html</a> is recommended for Chinese users). For checking usage of a specific function <code>fun</code>, you can also run <code>?fun</code> in your R console to see its documentation.</p>
 </div>
 </div>
 
@@ -244,7 +143,12 @@ Figure 1.1: Here is a nice figure!
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#intro"><span class="header-section-number">1</span> Introduction</a></li>
-<li><a class="nav-link" href="#mutational-signatures"><span class="header-section-number">1.1</span> Mutational signatures</a></li>
+<li>
+<a class="nav-link" href="#mutational-signatures"><span class="header-section-number">1.1</span> Mutational signatures</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#biological-significance-of-mutational-signature"><span class="header-section-number">1.1.1</span> Biological significance of mutational signature</a></li></ul>
+</li>
+<li><a class="nav-link" href="#package-installation"><span class="header-section-number">1.2</span> Package installation</a></li>
+<li><a class="nav-link" href="#package-loading"><span class="header-section-number">1.3</span> Package loading</a></li>
+<li><a class="nav-link" href="#package-references"><span class="header-section-number">1.4</span> Package references</a></li>
 </ul>
 
       <div class="book-extra">
@@ -265,7 +169,7 @@ Figure 1.1: Here is a nice figure!
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-07-21.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-07-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
