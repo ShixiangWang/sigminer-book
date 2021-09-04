@@ -1,9 +1,14 @@
 fig:unnamed-chunk-2
 fig:unnamed-chunk-3
 fig:unnamed-chunk-4
-intro
-mutational-signatures
+mutsig-intro
 biological-significance-of-mutational-signature
+cosmic-signatures
+copy-number-signatures
+genome-rearrangement-signatures
+more-information
+package-prerequisite-and-installation
+package-prerequisite
 package-installation
 package-loading
 package-references

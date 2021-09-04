@@ -1,0 +1,59 @@
+# Package prerequisite and installation 
+
+## Package prerequisite
+
+All R package dependencies of **sigminer** can be checked at [specific fields of *DESCRIPTION* file](https://github.com/ShixiangWang/sigminer/blob/4a10d0811cb3bcb02dbbff73ed1c218954bf9b42/DESCRIPTION#L45-L100).
+Of note, unlike common R package, many key features of **sigminer** are only available when the suggested packages are installed.
+Most of them are from [*Bioconductor*](http://bioconductor.org/), so R package **BiocManager** must be installed
+before installing **sigminer**. You have to use **BiocManager** instead of `install.packages()` to install **sigminer**.
+If you want to handle other reference genome data except `hg19`, e.g., for `hg38`, you also have to install *Bioconductor*
+package **BSgenome.Hsapiens.UCSC.hg38** before/after installing **sigminer**.
+
+## Package installation
+
+The stable release version of **sigminer** package can be installed from the CRAN:
+
+```{r, eval=FALSE}
+install.packages("BiocManager")
+BiocManager::install("sigminer", dependencies = TRUE)
+```
+
+Set `dependencies = TRUE` is recommended because many packages are required for accessing full features provided by **sigminer** (we described this in previous section).
+The development version of **sigminer** package can be installed from Github or Gitee after installing CRAN version **sigminer**:
+
+```{r eval=FALSE}
+install.packages("remotes")
+# From GitHub
+remotes::install_github("ShixiangWang/sigminer", dependencies = TRUE)
+# From Gitee
+remotes::install_git("https://gitee.com/ShixiangWang/sigminer", dependencies = TRUE)
+```
+
+If you see notification of package update, please keep this package up to date.
+
+## Package loading 
+
+To load package, run:
+
+```{r}
+library(sigminer)
+```
+
+More info about **sigminer** can be given as: 
+
+```{r, echo = TRUE}
+hello()
+```
+
+## Package references
+
+All datasets/functions are well organized and documented at [package *referrence* list](https://shixiangwang.github.io/sigminer/reference/index.html).
+For checking usage of a specific function `fun`, you can also run `?fun` in your R console.
+For example, to see usage `read_copynumber()`
+
+```R
+library(sigminer)
+?read_copynumber
+```
+
+

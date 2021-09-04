@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 1 Mutational signatures | Extract, Analyze and Visualize Mutational Signatures with Sigminer</title>
+<meta name="author" content="Shixiang Wang, PhD (Sun Yat-sen University Cancer Center)">
+<meta name="author" content="Xue-Song Liu, PhD (ShanghaiTech University)">
+<meta name="description" content="“Underlying cancer hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions” (Hanahan...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 1 Mutational signatures | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta property="og:type" content="book">
+<meta property="og:description" content="“Underlying cancer hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions” (Hanahan...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 1 Mutational signatures | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta name="twitter:description" content="“Underlying cancer hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions” (Hanahan...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Extract, Analyze and Visualize Mutational Signatures with Sigminer</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">📖 Introduction</a></li>
+<li class="book-part">Part I: Background and Prerequisite</li>
+<li><a class="active" href="mutsig-intro.html"><span class="header-section-number">1</span> Mutational signatures</a></li>
+<li><a class="" href="package-prerequisite-and-installation.html"><span class="header-section-number">2</span> Package prerequisite and installation</a></li>
+<li class="book-part">Part II: Workflows</li>
+<li class="book-part">Part III: Miscellaneous topics</li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="mutsig-intro" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Mutational signatures<a class="anchor" aria-label="anchor" href="#mutsig-intro"><i class="fas fa-link"></i></a>
+</h1>
+<p>“<em>Underlying cancer hallmarks are genome instability, which generates the genetic diversity that expedites their acquisition, and inflammation, which fosters multiple hallmark functions</em>” <span class="citation">(<a href="references.html#ref-hanahanHallmarksCancerNext2011" role="doc-biblioref">Hanahan 2011</a>)</span>. Cancer genomes typically harbors more than 1,000 somatic mutations in small (e.g., point mutations, short insertions and deletions) and large scale (e.g., copy number variations, rearrangements). DNA contexts where mutation may accumulate in response to both endogenous processes and exogeneous exposures <span class="citation">(<a href="references.html#ref-alexandrov2013signatures" role="doc-biblioref">Alexandrov et al. 2013</a>)</span>. In recent years, computational approaches including <a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization"><em>non-negative matrix factorization</em> (NMF)</a> have been applied to the mutation catalog of human/mouse tumors to detect characteristic DNA mutational patterns <span class="citation">(<a href="references.html#ref-alexandrov2013signatures" role="doc-biblioref">Alexandrov et al. 2013</a>, <a href="references.html#ref-alexandrov2020repertoire" role="doc-biblioref">2020</a>; <a href="references.html#ref-wang2021copy" role="doc-biblioref">Wang et al. 2021</a>)</span>, also known as <strong>“mutational signatures”</strong>.</p>
+<div id="biological-significance-of-mutational-signature" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Biological significance of mutational signature<a class="anchor" aria-label="anchor" href="#biological-significance-of-mutational-signature"><i class="fas fa-link"></i></a>
+</h2>
+<p>To better illustrate the biological significance of mutational signatures, we show some
+well organized figures here.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="fig/sbs_signature_overview_nat_review2.png" alt="The illustration of SBS signature, fig source: https://www.nature.com/articles/nrg3729" width="80%"><p class="caption">
+Figure 1.1: The illustration of SBS signature, fig source: <a href="https://www.nature.com/articles/nrg3729" class="uri">https://www.nature.com/articles/nrg3729</a>
+</p>
+</div>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="fig/sbs_signature_overview.png" alt="The illustration of SBS signature (2), fig source: https://www.nature.com/articles/s41467-018-05228-y" width="95%"><p class="caption">
+Figure 1.2: The illustration of SBS signature (2), fig source: <a href="https://www.nature.com/articles/s41467-018-05228-y" class="uri">https://www.nature.com/articles/s41467-018-05228-y</a>
+</p>
+</div>
+<div id="cosmic-signatures" class="section level3" number="1.1.1">
+<h3>
+<span class="header-section-number">1.1.1</span> COSMIC signatures<a class="anchor" aria-label="anchor" href="#cosmic-signatures"><i class="fas fa-link"></i></a>
+</h3>
+<p>SBS (single base substitution, or SNV) signature is a famous and well-established type of mutational signature. SBS signatures are well studied and related to single-strand changes, typically caused by defective DNA repair.
+Common etiologies contain aging, defective DNA mismatch repair, smoking, ultraviolet light exposure and <a href="https://en.wikipedia.org/wiki/APOBEC">APOBEC family members</a>.</p>
+<p>Currently, all SBS signatures are summarized in COSMIC database, it has two versions: <a href="https://cancer.sanger.ac.uk/cosmic/signatures_v2">v2</a> and <a href="https://cancer.sanger.ac.uk/cosmic/signatures/SBS/">v3</a>.</p>
+<p>Recently, <span class="citation"><a href="references.html#ref-alexandrov2020repertoire" role="doc-biblioref">Alexandrov et al.</a> (<a href="references.html#ref-alexandrov2020repertoire" role="doc-biblioref">2020</a>)</span> extends the concept of mutational signature to three types of alteration: SBS, DBS (short for doublet base substitution) and INDEL (short for short insertion and deletion).
+All reported common signatures are recorded in COSMIC (<a href="https://cancer.sanger.ac.uk/cosmic/signatures/" class="uri">https://cancer.sanger.ac.uk/cosmic/signatures/</a>), so we usually call them <strong>COSMIC signatures</strong>.</p>
+</div>
+<div id="copy-number-signatures" class="section level3" number="1.1.2">
+<h3>
+<span class="header-section-number">1.1.2</span> Copy number signatures<a class="anchor" aria-label="anchor" href="#copy-number-signatures"><i class="fas fa-link"></i></a>
+</h3>
+<p>Unlike several mutation types presented in current COSMIC database for generating mutational signatures, it is hard to represent copy number features and generate the matrix for NMF decomposition.</p>
+<p><span class="citation"><a href="references.html#ref-macintyre2018copy" role="doc-biblioref">Macintyre et al.</a> (<a href="references.html#ref-macintyre2018copy" role="doc-biblioref">2018</a>)</span> created a new method to generate the matrix for extracting signature by NMF algorithm. The steps are:</p>
+<ul>
+<li>derive 6 copy number features from absolute copy number profile</li>
+<li>apply mixture modeling to breakdown each feature distribution into mixtures of Gaussian or mixtures of Poisson distributions</li>
+<li>generate a sample-by-component matrix representing the sum of posterior probabilities of each copy-number event being assigned to each component.</li>
+</ul>
+<p>Based on the work, we devised a new method which discards the statistical modeling and create a fixed number of predefined components from 8 copy number features to generate the matrix as the input of NMF <span class="citation">(<a href="references.html#ref-wang2021copy" role="doc-biblioref">Wang et al. 2021</a>)</span>,
+it is easier to reproduce the result, apply to different cancer types and compare results.
+To test if the method would works, we applied it to prostate cancer and successfully identified 5 copy number signatures <span class="citation">(<a href="references.html#ref-wang2021copy" role="doc-biblioref">Wang et al. 2021</a>)</span>.</p>
+<div class="figure">
+<span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="fig/cn_signature_overview.png" alt="The illustration of copy number signatures, fig source: https://www.nature.com/articles/s41588-018-0212-y" width="95%"><p class="caption">
+Figure 1.3: The illustration of copy number signatures, fig source: <a href="https://www.nature.com/articles/s41588-018-0212-y" class="uri">https://www.nature.com/articles/s41588-018-0212-y</a>
+</p>
+</div>
+<p>Currently, there are few studies focus on copy number signatures and no reference signature database for matching and explaining the etiologies (The signatures presented in two papers above can be used as references). If you study them, you should do extra work to explore and validate them. Furthermore, the input absolute copy number data may be generated by different methods and platforms, it is normal that the contribution of some copy number feature components varies a little and result in relatively lower signature similarity when comparing different cohorts or different copy number profile generation methods.</p>
+<p>In addition, Alexandrov team adopted a similar approach for generating signatures like current COSMIC signatures
+and described them in ~10,000 human tumors <span class="citation">(<a href="references.html#ref-steele2021signatures" role="doc-biblioref">Steele et al. 2021</a>)</span>. Many interesting results have been reported and this
+would be a standard approach for allele-specific copy number profile.</p>
+</div>
+<div id="genome-rearrangement-signatures" class="section level3" number="1.1.3">
+<h3>
+<span class="header-section-number">1.1.3</span> Genome rearrangement signatures<a class="anchor" aria-label="anchor" href="#genome-rearrangement-signatures"><i class="fas fa-link"></i></a>
+</h3>
+<p>Genome rearrangement signatures (RS) also used COSMIC signature like approach to generation
+rearrangement classes in each tumor sample.
+RS are limited to whole genome sequencing data and also less studied.
+RS has been successfully applied to 560 breast tumor WGS data <span class="citation">(<a href="references.html#ref-nik2016landscape" role="doc-biblioref">Nik-Zainal et al. 2016</a>)</span> and linked to clinical
+outcomes in high grade serous ovarian cancers <span class="citation">(<a href="references.html#ref-hillman2018genomic" role="doc-biblioref">Hillman et al. 2018</a>)</span>.</p>
+</div>
+<div id="more-information" class="section level3" number="1.1.4">
+<h3>
+<span class="header-section-number">1.1.4</span> More information<a class="anchor" aria-label="anchor" href="#more-information"><i class="fas fa-link"></i></a>
+</h3>
+<p>More information about mutational signatures you can read <a href="https://en.wikipedia.org/wiki/Mutational_signatures">this wiki page</a>
+and <a href="https://cancer.sanger.ac.uk/signatures/">COSMIC signature data page</a>.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">📖 Introduction</a></div>
+<div class="next"><a href="package-prerequisite-and-installation.html"><span class="header-section-number">2</span> Package prerequisite and installation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mutsig-intro"><span class="header-section-number">1</span> Mutational signatures</a></li>
+<li>
+<a class="nav-link" href="#biological-significance-of-mutational-signature"><span class="header-section-number">1.1</span> Biological significance of mutational signature</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#cosmic-signatures"><span class="header-section-number">1.1.1</span> COSMIC signatures</a></li>
+<li><a class="nav-link" href="#copy-number-signatures"><span class="header-section-number">1.1.2</span> Copy number signatures</a></li>
+<li><a class="nav-link" href="#genome-rearrangement-signatures"><span class="header-section-number">1.1.3</span> Genome rearrangement signatures</a></li>
+<li><a class="nav-link" href="#more-information"><span class="header-section-number">1.1.4</span> More information</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-05.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

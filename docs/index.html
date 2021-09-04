@@ -7,10 +7,18 @@
 <title>📖 Introduction | Extract, Analyze and Visualize Mutational Signatures with Sigminer</title>
 <meta name="author" content="Shixiang Wang, PhD (Sun Yat-sen University Cancer Center)">
 <meta name="author" content="Xue-Song Liu, PhD (ShanghaiTech University)">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Extract, analyze and visualize mutational signatures with sigminer.">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="📖 Introduction | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Extract, analyze and visualize mutational signatures with sigminer.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="📖 Introduction | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta name="twitter:description" content="Extract, analyze and visualize mutational signatures with sigminer.">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -34,7 +42,8 @@
         <ul class="book-toc list-unstyled">
 <li><a class="active" href="index.html">📖 Introduction</a></li>
 <li class="book-part">Part I: Background and Prerequisite</li>
-<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="mutsig-intro.html"><span class="header-section-number">1</span> Mutational signatures</a></li>
+<li><a class="" href="package-prerequisite-and-installation.html"><span class="header-section-number">2</span> Package prerequisite and installation</a></li>
 <li class="book-part">Part II: Workflows</li>
 <li class="book-part">Part III: Miscellaneous topics</li>
 <li class="book-part">Appendix</li>
@@ -50,7 +59,7 @@
 <h1>📖 Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
 </h1>
 <p><a href="%5BUCSCXenaTools%5D(https://CRAN.R-project.org/package=UCSCXenaTools)"><img src="https://img.shields.io/badge/UCSCXenaTools-1.4.6-green.svg"></a>
-<a href="%5Bsigminer%5D(https://CRAN.R-project.org/package=sigminer)"><img src="https://img.shields.io/badge/sigminer-2.0.1-green.svg"></a>
+<a href="%5Bsigminer%5D(https://CRAN.R-project.org/package=sigminer)"><img src="https://img.shields.io/badge/sigminer-2.0.5-green.svg"></a>
 <a href="%5Bmaftools%5D(http://bioconductor.org/packages/maftools)"><img src="https://img.shields.io/badge/maftools-2.8.0-green.svg"></a>
 <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FShixiangWang%2Fsigminer-book&amp;count_bg=%2379C83D&amp;title_bg=%23555555&amp;icon=americanairlines.svg&amp;icon_color=%23E7E7E7&amp;title=hits&amp;edge_flat=false" alt="Hits"></a></p>
 <div id="motivation" class="section level2 unnumbered">
@@ -138,7 +147,7 @@ and exploring patterns of small mutational events. <strong><em>BMC Genomics</em>
 
   <div class="chapter-nav">
 <div class="empty"></div>
-<div class="next"><a href="intro.html"><span class="header-section-number">1</span> Introduction</a></div>
+<div class="next"><a href="mutsig-intro.html"><span class="header-section-number">1</span> Mutational signatures</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -165,7 +174,7 @@ and exploring patterns of small mutational events. <strong><em>BMC Genomics</em>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-07-25.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
