@@ -1,0 +1,228 @@
+# (PART\*) Part III: Miscellaneous topics {-}
+
+# Universal analysis {#universal-analysis}
+
+## Association analysis and visualization
+
+### General numeric association
+
+For general numeric association, you can use `show_cor()` function.
+
+```{r}
+data("mtcars")
+p1 <- show_cor(mtcars)
+p2 <- show_cor(mtcars,
+               x_vars = colnames(mtcars)[1:4],
+               y_vars = colnames(mtcars)[5:8])
+p3 <- show_cor(mtcars, vis_method = "circle", p_adj = "fdr")
+p1
+p1$cor
+p2
+p3
+```
+
+### Comprehensive association
+
+For comprehensive association analysis including both continuous and categorical variables,
+there are several functions available in **sigminer**:
+
+- `get_sig_feature_association()`.
+- `get_tidy_association()`.
+- `show_sig_feature_corrplot()`.
+
+Currently, I haven't provided a proper example dataset for showing usage of all functions above (please read their documentation), here only the tidy dataset from our study [@wang2021copy] is given to show the plot function.
+
+```{r, error=TRUE, fig.height=7, fig.width=6}
+# The data is generated from Wang, Shixiang et al.
+load(system.file("extdata", "asso_data.RData",
+  package = "sigminer", mustWork = TRUE
+))
+p <- show_sig_feature_corrplot(tidy_data.seqz.feature, p_val = 0.05)
+p
+```
+
+
+## Group Analysis and Visualization
+
+Group analysis is a common task in cancer study. **Sigminer** supports dividing samples into multiple groups and comparing genotype/phenotype feature measures.
+
+### Group Generation 
+
+There are multiple methods to generate groups, including 'consensus' (default, can be only used by result from `sig_extract()`), 'k-means' etc. After determining groups, **sigminer** will assign each group to a signature with maximum fraction. We may say a group is `Sig_x` enriched.
+
+```{r}
+data("simulated_catalogs")
+mt_sig <- sig_extract(t(simulated_catalogs$set1), n_sig = 10, nrun = 3)
+```
+
+```{r, message=TRUE}
+mt_grps <- get_groups(mt_sig, method = "consensus", match_consensus = TRUE)
+head(mt_grps)
+```
+
+The returned sample orders match sample orders in clustered consensus matrix.
+
+```{r}
+show_sig_consensusmap(mt_sig)
+```
+
+
+Sometimes, the mapping between groups and enriched signatures may not right. Users should check it and even correct it manually.
+
+
+```{r}
+attr(mt_grps, "map_table")
+```
+
+
+### Group Comparison Analysis 
+
+```{r}
+load(system.file("extdata", "toy_copynumber_signature_by_W.RData",
+  package = "sigminer", mustWork = TRUE
+))
+# Assign samples to clusters
+groups <- get_groups(sig, method = "k-means")
+set.seed(1234)
+groups$prob <- rnorm(10)
+groups$new_group <- sample(c("1", "2", "3", "4", NA), size = nrow(groups), replace = TRUE)
+# Compare groups (filter NAs for categorical coloumns)
+groups.cmp <- get_group_comparison(groups[, -1],
+  col_group = "group",
+  cols_to_compare = c("prob", "new_group"),
+  type = c("co", "ca"), verbose = TRUE
+)
+# Compare groups (Set NAs of categorical columns to 'Rest')
+groups.cmp2 <- get_group_comparison(groups[, -1],
+  col_group = "group",
+  cols_to_compare = c("prob", "new_group"),
+  type = c("co", "ca"), NAs = "Rest", verbose = TRUE
+)
+```
+
+
+### Group Visualization 
+
+```{r}
+ggcomp <- show_group_comparison(groups.cmp2)
+ggcomp$co_comb
+ggcomp$ca_comb
+```
+
+
+# Subtype prediction {#subtype-prediction}
+
+To expand the power of signatures to clinical application, based on signature activity, we can go further build neutral network model prediction model with [*keras*](https://keras.io/). This feature is implemented in sigminer’s child package [**sigminer.prediction**](https://github.com/ShixiangWang/sigminer.prediction).
+
+If you are studying copy number signatures of prostate cancer, you can directly use the trained model, the usage has been described in the
+[*README* file](https://github.com/ShixiangWang/sigminer.prediction/blob/master/README.md).
+
+For other situations, you can reuse the functions [`modeling_and_fitting()`](https://github.com/ShixiangWang/sigminer.prediction/blob/master/R/modeling_and_fitting.R)
+and [`batch_modeling_and_fitting()`](https://github.com/ShixiangWang/sigminer.prediction/blob/master/R/batch_modeling_and_fitting.R) (for batch processing) for building models.
+
+# Sigflow pipeline {#sigflow}
+
+[**Sigflow**](https://github.com/ShixiangWang/sigflow) provides useful mutational signature analysis workflows based on R package **sigminer**. It can auto-extract mutational signatures, fit mutation data to COSMIC reference signatures (SBS/DBS/INDEL) and run bootstrapping analysis for signature fitting.
+
+For full documentation, please read Sigflow [*README*](https://github.com/ShixiangWang/sigflow).
+
+## Cancer type specific signature index database
+
+Signature fitting analysis may befit from directly specifying known signatures identified in a cancer type. We collect such information and provide the following data tables.
+
+```{r}
+db1 <- system.file("extdata", "cosmic2_record_by_cancer.rds", package = "sigminer")
+db1 <- readRDS(db1)
+colnames(db1) <- c("Cancer type", "Signature Index")
+db2 <- system.file("extdata", "signature_record_by_cancer.rds", package = "sigminer")
+db2 <- readRDS(db2)
+colnames(db2) <- c("Cancer type", "Cohort", "Sequencing strategy",
+                   "SBS signature index",
+                   "DBS signature index",
+                   "ID signature index")
+```
+
+```{r}
+DT::datatable(db1, caption = "Data source: https://cancer.sanger.ac.uk/signatures_v2/matrix.png")
+```
+
+> Note, set `sig_db` to 'legacy' (the default) in `sig_fit()` family functions.
+
+```{r}
+DT::datatable(db2[, c(1:3, 4)], caption = "Data source: Alexandrov et al. https://www.nature.com/articles/s41586-020-1943-3")
+```
+
+```{r}
+DT::datatable(db2[, c(1:3, 5)], caption = "Data source: Alexandrov et al. https://www.nature.com/articles/s41586-020-1943-3")
+```
+
+```{r}
+DT::datatable(db2[, c(1:3, 6)], caption = "Data source: Alexandrov et al. https://www.nature.com/articles/s41586-020-1943-3")
+```
+
+# Datasets {#datasets}
+
+## Reference annotation 
+
+**sigminer** stores many reference annotation datasets for internal calculation. It can be exported for other usage either by `data()` or `get_genome_annotation()`.
+
+Currently, there are the following datasets:
+
+- `centromeres.hg19`
+- `centromeres.hg38`
+- `chromsize.hg19`
+- `chromsize.hg38`
+- `cytobands.hg19`
+- `cytobands.hg38`
+
+An example is given as below:
+
+```{r}
+data("centromeres.hg19")
+head(centromeres.hg19)
+```
+
+
+`get_genome_annotation()` can better control the returned `data.frame`.
+
+```{r}
+get_genome_annotation(data_type = "chr_size",
+                      chrs = c("chr1", "chr10", "chr20"),
+                      genome_build = "hg19")
+```
+
+
+More see `?get_genome_annotation`.
+
+## Copy number components setting 
+
+Dataset `CN.features` is a predefined component data table for identifying copy number signatures by method "Wang".
+Users can define a custom table with similar structure and pass it to function like `sig_tally()`.
+
+Detail about how to generate this dataset can be viewed at <https://github.com/ShixiangWang/sigminer/blob/master/data-raw/CN-features.R>.
+
+```{r}
+CN.features
+```
+
+# SBS signature conversion {#convert}
+
+Converts signatures between two representations relative to different sets of mutational opportunities. Currently, only SBS signature is supported.
+
+```{r, fig.width=12}
+# Load SBS signature
+load(system.file("extdata", "toy_mutational_signature.RData",
+  package = "sigminer", mustWork = TRUE
+))
+# Exome-relative to Genome-relative
+sig_converted <- sig_convert(sig2,
+  from = "human-exome",
+  to = "human-genome"
+)
+sig_converted
+show_sig_profile(sig2, style = "cosmic")
+show_sig_profile(sig_converted, style = "cosmic")
+```
+
+
+# (APPENDIX) Appendix {-}

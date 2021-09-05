@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>References | Extract, Analyze and Visualize Mutational Signatures with Sigminer</title>
+<title>Chapter 7 Subtype prediction | Extract, Analyze and Visualize Mutational Signatures with Sigminer</title>
 <meta name="author" content="Shixiang Wang, PhD (Sun Yat-sen University Cancer Center)">
 <meta name="author" content="Xue-Song Liu, PhD (ShanghaiTech University)">
-<meta name="description" content="Alexandrov, Ludmil B, Jaegil Kim, Nicholas J Haradhvala, Mi Ni Huang, Alvin Wei Tian Ng, Yang Wu, Arnoud Boot, et al. 2020. “The Repertoire of Mutational Signatures in Human Cancer.” Nature 578...">
+<meta name="description" content="To expand the power of signatures to clinical application, based on signature activity, we can go further build neutral network model prediction model with keras. This feature is implemented in...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="References | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta property="og:title" content="Chapter 7 Subtype prediction | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
 <meta property="og:type" content="book">
-<meta property="og:description" content="Alexandrov, Ludmil B, Jaegil Kim, Nicholas J Haradhvala, Mi Ni Huang, Alvin Wei Tian Ng, Yang Wu, Arnoud Boot, et al. 2020. “The Repertoire of Mutational Signatures in Human Cancer.” Nature 578...">
+<meta property="og:description" content="To expand the power of signatures to clinical application, based on signature activity, we can go further build neutral network model prediction model with keras. This feature is implemented in...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="References | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
-<meta name="twitter:description" content="Alexandrov, Ludmil B, Jaegil Kim, Nicholas J Haradhvala, Mi Ni Huang, Alvin Wei Tian Ng, Yang Wu, Arnoud Boot, et al. 2020. “The Repertoire of Mutational Signatures in Human Cancer.” Nature 578...">
+<meta name="twitter:title" content="Chapter 7 Subtype prediction | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
+<meta name="twitter:description" content="To expand the power of signatures to clinical application, based on signature activity, we can go further build neutral network model prediction model with keras. This feature is implemented in...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -54,12 +54,12 @@
 <li><a class="" href="target-vis.html"><span class="header-section-number">5</span> Target visualization</a></li>
 <li class="book-part">Part III: Miscellaneous topics</li>
 <li><a class="" href="universal-analysis.html"><span class="header-section-number">6</span> Universal analysis</a></li>
-<li><a class="" href="subtype-prediction.html"><span class="header-section-number">7</span> Subtype prediction</a></li>
+<li><a class="active" href="subtype-prediction.html"><span class="header-section-number">7</span> Subtype prediction</a></li>
 <li><a class="" href="sigflow.html"><span class="header-section-number">8</span> Sigflow pipeline</a></li>
 <li><a class="" href="datasets.html"><span class="header-section-number">9</span> Datasets</a></li>
 <li><a class="" href="convert.html"><span class="header-section-number">10</span> SBS signature conversion</a></li>
 <li class="book-part">Appendix</li>
-<li><a class="active" href="references.html">References</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -67,58 +67,22 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="references" class="section level1 unnumbered">
-<h1>References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="subtype-prediction" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Subtype prediction<a class="anchor" aria-label="anchor" href="#subtype-prediction"><i class="fas fa-link"></i></a>
 </h1>
-
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-alexandrov2020repertoire" class="csl-entry">
-Alexandrov, Ludmil B, Jaegil Kim, Nicholas J Haradhvala, Mi Ni Huang, Alvin Wei Tian Ng, Yang Wu, Arnoud Boot, et al. 2020. <span>“The Repertoire of Mutational Signatures in Human Cancer.”</span> <em>Nature</em> 578 (7793): 94–101.
-</div>
-<div id="ref-alexandrov2013signatures" class="csl-entry">
-Alexandrov, Ludmil B, Serena Nik-Zainal, David C Wedge, Samuel AJR Aparicio, Sam Behjati, Andrew V Biankin, Graham R Bignell, et al. 2013. <span>“Signatures of Mutational Processes in Human Cancer.”</span> <em>Nature</em> 500 (7463): 415–21.
-</div>
-<div id="ref-degasperi2020practical" class="csl-entry">
-Degasperi, Andrea, Tauanne Dias Amarante, Jan Czarnecki, Scott Shooter, Xueqing Zou, Dominik Glodzik, Sandro Morganella, et al. 2020. <span>“A Practical Framework and Online Tool for Mutational Signature Analyses Show Intertissue Variation and Driver Dependencies.”</span> <em>Nature Cancer</em> 1 (2): 249–63.
-</div>
-<div id="ref-gaujoux2010flexible" class="csl-entry">
-Gaujoux, Renaud, and Cathal Seoighe. 2010. <span>“A Flexible r Package for Nonnegative Matrix Factorization.”</span> <em>BMC Bioinformatics</em> 11 (1): 367.
-</div>
-<div id="ref-hanahanHallmarksCancerNext2011" class="csl-entry">
-Hanahan, Douglas. 2011. <span>“Hallmarks of <span>Cancer</span>: <span>The Next Generation</span>.”</span> <em>Cell</em>, March, 29. <a href="https://doi.org/10.1016/j.cell.2011.02.013">https://doi.org/10.1016/j.cell.2011.02.013</a>.
-</div>
-<div id="ref-hillman2018genomic" class="csl-entry">
-Hillman, R Tyler, Gary B Chisholm, Karen H Lu, and P Andrew Futreal. 2018. <span>“Genomic Rearrangement Signatures and Clinical Outcomes in High-Grade Serous Ovarian Cancer.”</span> <em>JNCI: Journal of the National Cancer Institute</em> 110 (3): 265–72.
-</div>
-<div id="ref-kim2016somatic" class="csl-entry">
-Kim, Jaegil, Kent W Mouw, Paz Polak, Lior Z Braunstein, Atanas Kamburov, Grace Tiao, David J Kwiatkowski, et al. 2016. <span>“Somatic Ercc2 Mutations Are Associated with a Distinct Genomic Signature in Urothelial Tumors.”</span> <em>Nature Genetics</em> 48 (6): 600.
-</div>
-<div id="ref-macintyre2018copy" class="csl-entry">
-Macintyre, Geoff, Teodora E Goranova, Dilrini De Silva, Darren Ennis, Anna M Piskorz, Matthew Eldridge, Daoud Sie, et al. 2018. <span>“Copy Number Signatures and Mutational Processes in Ovarian Carcinoma.”</span> <em>Nature Genetics</em> 50 (9): 1262–70.
-</div>
-<div id="ref-mayakonda2018maftools" class="csl-entry">
-Mayakonda, Anand, De-Chen Lin, Yassen Assenov, Christoph Plass, and H Phillip Koeffler. 2018. <span>“Maftools: Efficient and Comprehensive Analysis of Somatic Variants in Cancer.”</span> <em>Genome Research</em> 28 (11): 1747–56.
-</div>
-<div id="ref-nik2016landscape" class="csl-entry">
-Nik-Zainal, Serena, Helen Davies, Johan Staaf, Manasa Ramakrishna, Dominik Glodzik, Xueqing Zou, Inigo Martincorena, et al. 2016. <span>“Landscape of Somatic Mutations in 560 Breast Cancer Whole-Genome Sequences.”</span> <em>Nature</em> 534 (7605): 47–54.
-</div>
-<div id="ref-steele2021signatures" class="csl-entry">
-Steele, Christopher D, Ammal Abbasi, Ashiqul SM Islam, Azhar Khandekar, Kerstin Haase, Shadi Hames, Maxime Tarabichi, et al. 2021. <span>“Signatures of Copy Number Alterations in Human Cancer.”</span> <em>bioRxiv</em>.
-</div>
-<div id="ref-tan2012automatic" class="csl-entry">
-Tan, Vincent YF, and Cédric Févotte. 2012. <span>“Automatic Relevance Determination in Nonnegative Matrix Factorization with the/Spl Beta/-Divergence.”</span> <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em> 35 (7): 1592–1605.
-</div>
-<div id="ref-wang2021copy" class="csl-entry">
-Wang, Shixiang, Huimin Li, Minfang Song, Ziyu Tao, Tao Wu, Zaoke He, Xiangyu Zhao, Kai Wu, and Xue-Song Liu. 2021. <span>“Copy Number Signature Analysis Tool and Its Application in Prostate Cancer Reveals Distinct Mutational Processes and Clinical Outcomes.”</span> <em>PLoS Genetics</em> 17 (5): e1009557.
-</div>
-</div>
+<p>To expand the power of signatures to clinical application, based on signature activity, we can go further build neutral network model prediction model with <a href="https://keras.io/"><em>keras</em></a>. This feature is implemented in sigminer’s child package <a href="https://github.com/ShixiangWang/sigminer.prediction"><strong>sigminer.prediction</strong></a>.</p>
+<p>If you are studying copy number signatures of prostate cancer, you can directly use the trained model, the usage has been described in the
+<a href="https://github.com/ShixiangWang/sigminer.prediction/blob/master/README.md"><em>README</em> file</a>.</p>
+<p>For other situations, you can reuse the functions <a href="https://github.com/ShixiangWang/sigminer.prediction/blob/master/R/modeling_and_fitting.R"><code>modeling_and_fitting()</code></a>
+and <a href="https://github.com/ShixiangWang/sigminer.prediction/blob/master/R/batch_modeling_and_fitting.R"><code>batch_modeling_and_fitting()</code></a> (for batch processing) for building models.</p>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="convert.html"><span class="header-section-number">10</span> SBS signature conversion</a></div>
-<div class="empty"></div>
+<div class="prev"><a href="universal-analysis.html"><span class="header-section-number">6</span> Universal analysis</a></div>
+<div class="next"><a href="sigflow.html"><span class="header-section-number">8</span> Sigflow pipeline</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#references">References</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#subtype-prediction"><span class="header-section-number">7</span> Subtype prediction</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

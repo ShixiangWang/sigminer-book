@@ -1,4 +1,4 @@
-# Package prerequisite and installation 
+# Package prerequisite and installation {#prerequisite}
 
 ## Package prerequisite
 

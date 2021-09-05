@@ -62,7 +62,8 @@ badge_version <- function(pkg, color="green", bioc = FALSE, user = NULL) {
 library(emojifont)
 library(knitr)
 opts_chunk$set(message=TRUE, warning=FALSE, eval=TRUE, 
-    echo=TRUE, cache=TRUE, dev="CairoPNG", out.width="95%")
+    echo=TRUE, cache=TRUE, #dev="CairoPNG",
+    out.width="95%", collapse = TRUE)
 ```
 
 
