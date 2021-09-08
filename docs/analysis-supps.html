@@ -17,9 +17,9 @@
 <meta name="twitter:description" content="4.1 Copy number signature identification  4.1.1 Read data The input requires absolute copy number profile with following information: Segment chromosome. Segment start. Segment end. Absolute copy...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.19/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.18/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
@@ -122,32 +122,32 @@ you can ignore this setting after removing the X/Y segments, otherwise the <code
   seg_cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"chromosome"</span>, <span class="st">"start"</span>, <span class="st">"end"</span>, <span class="st">"segVal"</span><span class="op">)</span>,
   genome_build <span class="op">=</span> <span class="st">"hg19"</span>, complement <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Started.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Genome build  : hg19.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Genome measure: called.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Chromosome size database for build obtained.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Reading input.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: A data frame as input detected.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Column names checked.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Column order set.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Chromosomes unified.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Data imported.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Segments info:</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]:     Keep - 467</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]:     Drop - 0</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Segments sorted.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Joining adjacent segments with same copy number value. Be patient...</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: 400 segments left after joining.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Segmental table cleaned.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Annotating.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Annotation done.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Summarizing per sample.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Summarized.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Generating CopyNumber object.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Generated.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: Validating object.</span>
-<span class="co">## ✓ [2021-09-05 23:18:53]: Done.</span>
-<span class="co">## ℹ [2021-09-05 23:18:53]: 0.131 secs elapsed.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Started.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Genome build  : hg19.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Genome measure: called.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Chromosome size database for build obtained.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Reading input.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: A data frame as input detected.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Column names checked.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Column order set.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Chromosomes unified.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Data imported.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Segments info:</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]:     Keep - 467</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]:     Drop - 0</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Segments sorted.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Joining adjacent segments with same copy number value. Be patient...</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: 400 segments left after joining.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Segmental table cleaned.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Annotating.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Annotation done.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Summarizing per sample.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Summarized.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Generating CopyNumber object.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Generated.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: Validating object.</span>
+<span class="co">## ✓ [2021-09-08 18:06:44]: Done.</span>
+<span class="co">## ℹ [2021-09-08 18:06:44]: 0.138 secs elapsed.</span>
 <span class="va">cn</span>
 <span class="co">## An object of class CopyNumber </span>
 <span class="co">## =============================</span>
@@ -217,7 +217,7 @@ the <code>sigminer.sex</code> option has effects on <code><a href="https://rdrr.
 <span class="co">## TCGA-99-7458-01A-11D-2035-01       284         9         5         1         1</span></code></pre></div>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># library(NMF)</span>
-<span class="va">sig_w</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_extract.html">sig_extract</a></span><span class="op">(</span><span class="va">cn_tally_W</span><span class="op">$</span><span class="va">nmf_matrix</span>, n_sig <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<span class="va">sig_w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_extract.html">sig_extract</a></span><span class="op">(</span><span class="va">cn_tally_W</span><span class="op">$</span><span class="va">nmf_matrix</span>, n_sig <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -250,7 +250,7 @@ the <code>sigminer.sex</code> option has effects on <code><a href="https://rdrr.
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-05.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

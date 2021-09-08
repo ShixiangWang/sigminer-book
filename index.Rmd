@@ -63,7 +63,8 @@ library(emojifont)
 library(knitr)
 opts_chunk$set(message=TRUE, warning=FALSE, eval=TRUE, 
     echo=TRUE, cache=TRUE, #dev="CairoPNG",
-    out.width="95%", collapse = TRUE)
+    out.width="95%", collapse = TRUE,
+    tidy = "styler")
 ```
 
 

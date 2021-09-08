@@ -17,9 +17,9 @@
 <meta name="twitter:description" content='6.1 Association analysis and visualization  6.1.1 General numeric association For general numeric association, you can use show_cor() function. data("mtcars") p1 &lt;- show_cor(mtcars) p2 &lt;-...'>
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.19/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.18/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
@@ -84,8 +84,9 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span>
 <span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
 <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>,
-               x_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,
-               y_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span><span class="op">)</span>
+  x_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,
+  y_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>
+<span class="op">)</span>
 <span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>, vis_method <span class="op">=</span> <span class="st">"circle"</span>, p_adj <span class="op">=</span> <span class="st">"fdr"</span><span class="op">)</span>
 <span class="va">p1</span></code></pre></div>
 <div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-89-1.png" width="95%"></div>
@@ -201,13 +202,13 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <span id="cb79-16"><a href="universal-analysis.html#cb79-16" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|==================================================|</span> <span class="dv">100</span>%</span>
 <span id="cb79-17"><a href="universal-analysis.html#cb79-17" aria-hidden="true" tabindex="-1"></a><span class="do">## System time:</span></span>
 <span id="cb79-18"><a href="universal-analysis.html#cb79-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  用户  系统  流逝 </span></span>
-<span id="cb79-19"><a href="universal-analysis.html#cb79-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.412 0.015 3.430</span></span></code></pre></div>
+<span id="cb79-19"><a href="universal-analysis.html#cb79-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 3.734 0.015 3.763</span></span></code></pre></div>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mt_grps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">mt_sig</span>, method <span class="op">=</span> <span class="st">"consensus"</span>, match_consensus <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Started.</span>
-<span class="co">## ✓ [2021-09-05 23:19:13]: 'Signature' object detected.</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Finding the dominant signature of each group...</span>
+<span class="co">## ℹ [2021-09-08 18:07:08]: Started.</span>
+<span class="co">## ✓ [2021-09-08 18:07:08]: 'Signature' object detected.</span>
+<span class="co">## ℹ [2021-09-08 18:07:08]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span>
+<span class="co">## ℹ [2021-09-08 18:07:08]: Finding the dominant signature of each group...</span>
 <span class="co">## =&gt; Generating a table of group and dominant signature:</span>
 <span class="co">##     </span>
 <span class="co">##      Sig1 Sig10 Sig2 Sig3 Sig4 Sig5 Sig7 Sig8 Sig9</span>
@@ -222,7 +223,7 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <span class="co">##   8     0     0    1    4    0    0    0    0    0</span>
 <span class="co">##   9     1     0    0    0    0    0    0    0    0</span>
 <span class="co">## =&gt; Assigning a group to a signature with the maxium fraction (stored in 'map_table' attr)...</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Summarizing...</span>
+<span class="co">## ℹ [2021-09-08 18:07:08]: Summarizing...</span>
 <span class="co">##  group #1: 4 samples with Sig10 enriched.</span>
 <span class="co">##  group #10: 6 samples with Sig5 enriched.</span>
 <span class="co">##  group #2: 1 samples with Sig2 enriched.</span>
@@ -233,8 +234,8 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <span class="co">##  group #7: 3 samples with Sig9 enriched.</span>
 <span class="co">##  group #8: 5 samples with Sig3 enriched.</span>
 <span class="co">##  group #9: 1 samples with Sig1 enriched.</span>
-<span class="co">## ! [2021-09-05 23:19:13]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: 0.031 secs elapsed.</span>
+<span class="co">## ! [2021-09-08 18:07:08]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
+<span class="co">## ℹ [2021-09-08 18:07:08]: 0.043 secs elapsed.</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mt_grps</span><span class="op">)</span>
 <span class="co">##       sample group silhouette_width enrich_sig</span>
 <span class="co">## 1: Sample_14     1         6.67e-01      Sig10</span>
@@ -273,19 +274,19 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <span class="op">)</span><span class="op">)</span>
 <span class="co"># Assign samples to clusters</span>
 <span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">sig</span>, method <span class="op">=</span> <span class="st">"k-means"</span><span class="op">)</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Started.</span>
-<span class="co">## ✓ [2021-09-05 23:19:13]: 'Signature' object detected.</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Running k-means with 2 clusters...</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Generating a table of group and signature contribution (stored in 'map_table' attr):</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: Started.</span>
+<span class="co">## ✓ [2021-09-08 18:07:09]: 'Signature' object detected.</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: Running k-means with 2 clusters...</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: Generating a table of group and signature contribution (stored in 'map_table' attr):</span>
 <span class="co">##        Sig1      Sig2</span>
 <span class="co">## 1 0.2097559 0.7901116</span>
 <span class="co">## 2 0.8964984 0.1035016</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Assigning a group to a signature with the maximum fraction...</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: Summarizing...</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: Assigning a group to a signature with the maximum fraction...</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: Summarizing...</span>
 <span class="co">##  group #1: 2 samples with Sig2 enriched.</span>
 <span class="co">##  group #2: 8 samples with Sig1 enriched.</span>
-<span class="co">## ! [2021-09-05 23:19:13]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
-<span class="co">## ℹ [2021-09-05 23:19:13]: 0.015 secs elapsed.</span>
+<span class="co">## ! [2021-09-08 18:07:09]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
+<span class="co">## ℹ [2021-09-08 18:07:09]: 0.028 secs elapsed.</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
 <span class="va">groups</span><span class="op">$</span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
 <span class="va">groups</span><span class="op">$</span><span class="va">new_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="cn">NA</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">groups</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -356,7 +357,7 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-05.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
