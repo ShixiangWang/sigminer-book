@@ -285,7 +285,7 @@ Figure 3.1: The illustration of 96 components, fig source: <a href="https://en.w
 <code class="sourceCode R"><span class="va">mt_tally</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_tally.html">sig_tally</a></span><span class="op">(</span>
   <span class="va">brca</span>,
   ref_genome <span class="op">=</span> <span class="st">"BSgenome.Hsapiens.UCSC.hg19"</span>,
-  useSyn <span class="op">=</span> <span class="cn">TRUE</span>
+  use_syn <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
 <span class="co">## ℹ [2021-09-08 18:05:31]: Started.</span>
 <span class="co">## ℹ [2021-09-08 18:05:37]: We would assume you marked all variants' position in + strand.</span>
@@ -320,7 +320,7 @@ Figure 3.1: The illustration of 96 components, fig source: <a href="https://en.w
 <span class="co">## ✓ [2021-09-08 18:05:47]: Done.</span>
 <span class="co">## ℹ [2021-09-08 18:05:47]: 16.223 secs elapsed.</span></code></pre></div>
 <blockquote>
-<p>Here set <code>useSyn = TRUE</code> to include all variant records in MAF object to generate sample matrix.</p>
+<p>Here set <code>use_syn = TRUE</code> to include all variant records in MAF object to generate sample matrix.</p>
 </blockquote>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mt_tally</span><span class="op">$</span><span class="va">nmf_matrix</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>
@@ -356,7 +356,7 @@ Figure 3.1: The illustration of 96 components, fig source: <a href="https://en.w
 <code class="sourceCode R"><span class="va">mt_tally2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_tally.html">sig_tally</a></span><span class="op">(</span>
   <span class="va">brca</span>,
   ref_genome <span class="op">=</span> <span class="st">"BSgenome.Hsapiens.UCSC.hg19"</span>,
-  useSyn <span class="op">=</span> <span class="cn">TRUE</span>, add_trans_bias <span class="op">=</span> <span class="cn">TRUE</span>
+  use_syn <span class="op">=</span> <span class="cn">TRUE</span>, add_trans_bias <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
 <span class="co">## ℹ [2021-09-08 18:05:47]: Started.</span>
 <span class="co">## ℹ [2021-09-08 18:05:47]: We would assume you marked all variants' position in + strand.</span>
@@ -409,7 +409,7 @@ Figure 3.1: The illustration of 96 components, fig source: <a href="https://en.w
 <code class="sourceCode R"><span class="va">mt_tally_DBS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_tally.html">sig_tally</a></span><span class="op">(</span>
   <span class="va">brca</span>,
   ref_genome <span class="op">=</span> <span class="st">"BSgenome.Hsapiens.UCSC.hg19"</span>,
-  useSyn <span class="op">=</span> <span class="cn">TRUE</span>,
+  use_syn <span class="op">=</span> <span class="cn">TRUE</span>,
   mode <span class="op">=</span> <span class="st">"DBS"</span>,
   add_trans_bias <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
@@ -448,7 +448,7 @@ Let’s see ID records.</p>
 <code class="sourceCode R"><span class="va">mt_tally_ID</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_tally.html">sig_tally</a></span><span class="op">(</span>
   <span class="va">brca</span>,
   ref_genome <span class="op">=</span> <span class="st">"BSgenome.Hsapiens.UCSC.hg19"</span>,
-  useSyn <span class="op">=</span> <span class="cn">TRUE</span>,
+  use_syn <span class="op">=</span> <span class="cn">TRUE</span>,
   mode <span class="op">=</span> <span class="st">"ID"</span>,
   add_trans_bias <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
@@ -491,7 +491,7 @@ Just set <code>mode='ALL'</code>, <strong>sigminer</strong> will do it for you!<
 <code class="sourceCode R"><span class="va">mt_tally_all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/sig_tally.html">sig_tally</a></span><span class="op">(</span>
   <span class="va">brca</span>,
   ref_genome <span class="op">=</span> <span class="st">"BSgenome.Hsapiens.UCSC.hg19"</span>,
-  useSyn <span class="op">=</span> <span class="cn">TRUE</span>,
+  use_syn <span class="op">=</span> <span class="cn">TRUE</span>,
   mode <span class="op">=</span> <span class="st">"ALL"</span>,
   add_trans_bias <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
