@@ -15,11 +15,11 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 5 Target visualization | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
 <meta name="twitter:description" content='5.1 CopyNumber object  5.1.1 Profile show_cn_profile(cn, nrow = 2, ncol = 1) show_cn_circos(cn, samples = 1)   5.1.2 Distribution show_cn_distribution(cn, mode = "ld") show_cn_distribution(cn,...'>
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.18/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.19/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
@@ -107,7 +107,7 @@
 <h3>
 <span class="header-section-number">5.2.1</span> Operate <code>Signature</code><a class="anchor" aria-label="anchor" href="#operate-signature"><i class="fas fa-link"></i></a>
 </h3>
-<p>The result of <code><a href="https://rdrr.io/pkg/sigminer/man/sig_extract.html">sig_extract()</a></code> or <code><a href="https://rdrr.io/pkg/sigminer/man/sig_auto_extract.html">sig_auto_extract()</a></code> is a <code>list</code> with <code>Signature</code> class. You can use <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> or use operation function to obtain the data stored in it.</p>
+<p>The result of <code><a href="https://rdrr.io/pkg/sigminer/man/sig_extract.html">sig_extract()</a></code> or <code><a href="https://rdrr.io/pkg/sigminer/man/sig_auto_extract.html">sig_auto_extract()</a></code> is a <code>list</code> with <code>Signature</code> class. You can use <code>$</code> or use operation function to obtain the data stored in it.</p>
 <p>To get the signature matrix:</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Or mt_sig2$Signature</span>
@@ -330,21 +330,21 @@
 <p>You can put group labels in the exposure profile.</p>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">grp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">sig_w</span><span class="op">)</span>
-<span class="co">## ℹ [2021-09-08 18:06:59]: Started.</span>
-<span class="co">## ✓ [2021-09-08 18:06:59]: 'Signature' object detected.</span>
-<span class="co">## ℹ [2021-09-08 18:06:59]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span>
-<span class="co">## ℹ [2021-09-08 18:06:59]: Finding the dominant signature of each group...</span>
+<span class="co">## ℹ [2021-12-04 23:51:35]: Started.</span>
+<span class="co">## ✓ [2021-12-04 23:51:35]: 'Signature' object detected.</span>
+<span class="co">## ℹ [2021-12-04 23:51:35]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span>
+<span class="co">## ℹ [2021-12-04 23:51:35]: Finding the dominant signature of each group...</span>
 <span class="co">## =&gt; Generating a table of group and dominant signature:</span>
 <span class="co">##    </span>
 <span class="co">##     Sig1 Sig2</span>
 <span class="co">##   1    0    2</span>
 <span class="co">##   2    8    0</span>
 <span class="co">## =&gt; Assigning a group to a signature with the maxium fraction (stored in 'map_table' attr)...</span>
-<span class="co">## ℹ [2021-09-08 18:06:59]: Summarizing...</span>
+<span class="co">## ℹ [2021-12-04 23:51:35]: Summarizing...</span>
 <span class="co">##  group #1: 2 samples with Sig2 enriched.</span>
 <span class="co">##  group #2: 8 samples with Sig1 enriched.</span>
-<span class="co">## ! [2021-09-08 18:06:59]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
-<span class="co">## ℹ [2021-09-08 18:06:59]: 0.038 secs elapsed.</span>
+<span class="co">## ! [2021-12-04 23:51:35]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
+<span class="co">## ℹ [2021-12-04 23:51:35]: 0.055 secs elapsed.</span>
 <span class="va">grp_label</span> <span class="op">&lt;-</span> <span class="va">grp</span><span class="op">$</span><span class="va">group</span>
 <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">grp_label</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">grp</span><span class="op">$</span><span class="va">sample</span></code></pre></div>
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
@@ -425,7 +425,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-09-08.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-12-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
