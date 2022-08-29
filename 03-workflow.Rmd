@@ -1,6 +1,6 @@
 # (PART\*) Part II: Workflows {-}
 
-# Basic analysis workflow {#basic-workflow}
+# Mutational signature analysis basics {#basic-workflow}
 
 This chapter demonstrates how to run two key mutational signature analyses (*de novo* signature
 discovery and signature fitting) in details.
@@ -510,9 +510,9 @@ show_sig_bootstrap_stability(bt_result)
 P values have been calculated under specified relative exposure cutoff (0.05 at default).
 
 
-# Analysis supplements {#analysis-supps}
+# Other signature types {#analysis-supps}
 
-## Copy number signature identification
+## Copy number signature (*Wang* et al)
 
 ### Read data 
 
@@ -533,6 +533,10 @@ Useful softwares are listed below:
 - [FACETS](https://github.com/mskcc/facets)
 - [PennCNV](http://penncnv.openbioinformatics.org/en/latest/) & [ASCAT](https://www.crick.ac.uk/research/labs/peter-van-loo/software)
 - [CNVkit](https://github.com/etal/cnvkit)
+
+Useful analysis reference:
+
+- [Prostate Cancer Variation Signature Analysis Report](https://xsliulab.github.io/PC_CNA_signature/)
 
 The import work is done by `read_copynumber()`, which supports `data.frame` or file, and even result directory from **ABSOLUTE**.
 
@@ -616,6 +620,51 @@ sig_w = sig_extract(cn_tally_W$nmf_matrix, n_sig = 2)
 ```{r, include=FALSE}
 load("data/sig_w.RData")
 ```
+
+## Allele specific copy number signature (*Steele* et al)
+
+Previously described steps can be also applied to allele specific copy number
+profile with *Steele* et al approach. There are two catalog methods provided by
+*Steele* et al: 40 catalogs and 48 catalogs. In current stage, 48 catalog is
+recommended as ~20 reference signatures have been built on ~10,000 TCGA tumors. 
+reference example is given below:
+
+```{r}
+# Generate example data
+load(system.file("extdata", "toy_segTab.RData",
+                 package = "sigminer", mustWork = TRUE
+))
+set.seed(1234)
+# Make sure minor_cn is provided
+segTabs$minor_cn <- sample(c(0, 1), size = nrow(segTabs), replace = TRUE)
+cn2 <- read_copynumber(segTabs,
+                       seg_cols = c("chromosome", "start", "end", "segVal"),
+                       genome_measure = "wg", complement = TRUE, add_loh = TRUE
+)
+
+# Use tally method "S" (Steele et al.)
+tally_s2 <- sig_tally(cn2, method = "S")
+
+cn_sig2 = sig_extract(tally_s2$all_matrices$CN_48, n_sig = 2)
+get_sig_similarity(cn_sig2, sig_db = "CNS_TCGA")
+```
+
+## Rearrangement signature
+
+Similarity, once you know how to generate matrix for genome rearrangement signature,
+you can easily apply the signature extraction or signature fitting.
+
+```{r}
+sv <- readRDS(system.file("extdata", "toy_sv.rds", package = "sigminer", mustWork = TRUE))
+rs <- read_sv_as_rs(sv)
+# svclass is optional
+rs2 <- read_sv_as_rs(sv[, setdiff(colnames(sv), "svclass")])
+identical(rs, rs2)
+
+tally_rs <- sig_tally(rs)
+str(tally_rs)
+```
+
 
 # Target visualization  {#target-vis}
 

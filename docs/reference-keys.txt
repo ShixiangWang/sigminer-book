@@ -36,9 +36,11 @@ fit-custom-signatures
 performance-comparison
 estimate-exposureactivity-stability-by-bootstrapping
 analysis-supps
-copy-number-signature-identification
+copy-number-signature-wang-et-al
 read-data
 extract-signatures
+allele-specific-copy-number-signature-steele-et-al
+rearrangement-signature
 target-vis
 copynumber-object
 profile

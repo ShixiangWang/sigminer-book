@@ -8,21 +8,46 @@
 <meta name="author" content="Shixiang Wang, PhD (Sun Yat-sen University Cancer Center)">
 <meta name="author" content="Xue-Song Liu, PhD (ShanghaiTech University)">
 <meta name="description" content='6.1 Association analysis and visualization  6.1.1 General numeric association For general numeric association, you can use show_cor() function. data("mtcars") p1 &lt;- show_cor(mtcars) p2 &lt;-...'>
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Universal analysis | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
 <meta property="og:type" content="book">
 <meta property="og:description" content='6.1 Association analysis and visualization  6.1.1 General numeric association For general numeric association, you can use show_cor() function. data("mtcars") p1 &lt;- show_cor(mtcars) p2 &lt;-...'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 6 Universal analysis | Extract, Analyze and Visualize Mutational Signatures with Sigminer">
 <meta name="twitter:description" content='6.1 Association analysis and visualization  6.1.1 General numeric association For general numeric association, you can use show_cor() function. data("mtcars") p1 &lt;- show_cor(mtcars) p2 &lt;-...'>
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="libs/datatables-binding-0.19/datatables.js"></script><link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+<script src="libs/datatables-binding-0.24/datatables.js"></script><link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -49,8 +74,8 @@
 <li><a class="" href="mutsig-intro.html"><span class="header-section-number">1</span> Mutational signatures</a></li>
 <li><a class="" href="prerequisite.html"><span class="header-section-number">2</span> Package prerequisite and installation</a></li>
 <li class="book-part">Part II: Workflows</li>
-<li><a class="" href="basic-workflow.html"><span class="header-section-number">3</span> Basic analysis workflow</a></li>
-<li><a class="" href="analysis-supps.html"><span class="header-section-number">4</span> Analysis supplements</a></li>
+<li><a class="" href="basic-workflow.html"><span class="header-section-number">3</span> Mutational signature analysis basics</a></li>
+<li><a class="" href="analysis-supps.html"><span class="header-section-number">4</span> Other signature types</a></li>
 <li><a class="" href="target-vis.html"><span class="header-section-number">5</span> Target visualization</a></li>
 <li class="book-part">Part III: Miscellaneous topics</li>
 <li><a class="active" href="universal-analysis.html"><span class="header-section-number">6</span> Universal analysis</a></li>
@@ -80,74 +105,74 @@
 <span class="header-section-number">6.1.1</span> General numeric association<a class="anchor" aria-label="anchor" href="#general-numeric-association"><i class="fas fa-link"></i></a>
 </h3>
 <p>For general numeric association, you can use <code><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor()</a></code> function.</p>
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span>
-<span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span>
-<span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>,
-  x_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,
-  y_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>
-<span class="op">)</span>
-<span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>, vis_method <span class="op">=</span> <span class="st">"circle"</span>, p_adj <span class="op">=</span> <span class="st">"fdr"</span><span class="op">)</span>
-<span class="va">p1</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-89-1.png" width="95%"></div>
-<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p1</span><span class="op">$</span><span class="va">cor</span>
-<span class="co">## $cor_mat</span>
-<span class="co">##        mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span>
-<span class="co">## mpg   1.00 -0.91 -0.91 -0.89  0.65 -0.89  0.47  0.71  0.56  0.54 -0.66</span>
-<span class="co">## cyl  -0.91  1.00  0.93  0.90 -0.68  0.86 -0.57 -0.81 -0.52 -0.56  0.58</span>
-<span class="co">## disp -0.91  0.93  1.00  0.85 -0.68  0.90 -0.46 -0.72 -0.62 -0.59  0.54</span>
-<span class="co">## hp   -0.89  0.90  0.85  1.00 -0.52  0.77 -0.67 -0.75 -0.36 -0.33  0.73</span>
-<span class="co">## drat  0.65 -0.68 -0.68 -0.52  1.00 -0.75  0.09  0.45  0.69  0.74 -0.13</span>
-<span class="co">## wt   -0.89  0.86  0.90  0.77 -0.75  1.00 -0.23 -0.59 -0.74 -0.68  0.50</span>
-<span class="co">## qsec  0.47 -0.57 -0.46 -0.67  0.09 -0.23  1.00  0.79 -0.20 -0.15 -0.66</span>
-<span class="co">## vs    0.71 -0.81 -0.72 -0.75  0.45 -0.59  0.79  1.00  0.17  0.28 -0.63</span>
-<span class="co">## am    0.56 -0.52 -0.62 -0.36  0.69 -0.74 -0.20  0.17  1.00  0.81 -0.06</span>
-<span class="co">## gear  0.54 -0.56 -0.59 -0.33  0.74 -0.68 -0.15  0.28  0.81  1.00  0.11</span>
-<span class="co">## carb -0.66  0.58  0.54  0.73 -0.13  0.50 -0.66 -0.63 -0.06  0.11  1.00</span>
-<span class="co">## </span>
-<span class="co">## $p_mat</span>
-<span class="co">##               mpg          cyl         disp           hp         drat</span>
-<span class="co">## mpg  0.000000e+00 6.112687e-10 9.380327e-10 1.787835e-07 1.776240e-05</span>
-<span class="co">## cyl  6.112687e-10 0.000000e+00 1.802838e-12 3.477861e-09 8.244636e-06</span>
-<span class="co">## disp 9.380327e-10 1.802838e-12 0.000000e+00 7.142679e-08 5.282022e-06</span>
-<span class="co">## hp   1.787835e-07 3.477861e-09 7.142679e-08 0.000000e+00 9.988772e-03</span>
-<span class="co">## drat 1.776240e-05 8.244636e-06 5.282022e-06 9.988772e-03 0.000000e+00</span>
-<span class="co">## wt   1.293959e-10 1.217567e-07 1.222320e-11 4.145827e-05 4.784260e-06</span>
-<span class="co">## qsec 1.708199e-02 3.660533e-04 1.314404e-02 5.766253e-06 6.195826e-01</span>
-<span class="co">## vs   3.415937e-05 1.843018e-08 5.235012e-06 2.940896e-06 1.167553e-02</span>
-<span class="co">## am   2.850207e-04 2.151207e-03 3.662114e-04 1.798309e-01 4.726790e-06</span>
-<span class="co">## gear 5.400948e-03 4.173297e-03 9.635921e-04 4.930119e-01 8.360110e-06</span>
-<span class="co">## carb 1.084446e-03 1.942340e-03 2.526789e-02 7.827810e-07 6.211834e-01</span>
-<span class="co">##                wt         qsec           vs           am         gear</span>
-<span class="co">## mpg  1.293959e-10 1.708199e-02 3.415937e-05 2.850207e-04 5.400948e-03</span>
-<span class="co">## cyl  1.217567e-07 3.660533e-04 1.843018e-08 2.151207e-03 4.173297e-03</span>
-<span class="co">## disp 1.222320e-11 1.314404e-02 5.235012e-06 3.662114e-04 9.635921e-04</span>
-<span class="co">## hp   4.145827e-05 5.766253e-06 2.940896e-06 1.798309e-01 4.930119e-01</span>
-<span class="co">## drat 4.784260e-06 6.195826e-01 1.167553e-02 4.726790e-06 8.360110e-06</span>
-<span class="co">## wt   0.000000e+00 3.388683e-01 9.798492e-04 1.125440e-05 4.586601e-04</span>
-<span class="co">## qsec 3.388683e-01 0.000000e+00 1.029669e-06 2.056621e-01 2.425344e-01</span>
-<span class="co">## vs   9.798492e-04 1.029669e-06 0.000000e+00 3.570439e-01 2.579439e-01</span>
-<span class="co">## am   1.125440e-05 2.056621e-01 3.570439e-01 0.000000e+00 5.834043e-08</span>
-<span class="co">## gear 4.586601e-04 2.425344e-01 2.579439e-01 5.834043e-08 0.000000e+00</span>
-<span class="co">## carb 1.463861e-02 4.536949e-05 6.670496e-04 7.544526e-01 1.290291e-01</span>
-<span class="co">##              carb</span>
-<span class="co">## mpg  1.084446e-03</span>
-<span class="co">## cyl  1.942340e-03</span>
-<span class="co">## disp 2.526789e-02</span>
-<span class="co">## hp   7.827810e-07</span>
-<span class="co">## drat 6.211834e-01</span>
-<span class="co">## wt   1.463861e-02</span>
-<span class="co">## qsec 4.536949e-05</span>
-<span class="co">## vs   6.670496e-04</span>
-<span class="co">## am   7.544526e-01</span>
-<span class="co">## gear 1.290291e-01</span>
-<span class="co">## carb 0.000000e+00</span>
-<span class="va">p2</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-89-2.png" width="95%"></div>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">p3</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-89-3.png" width="95%"></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"mtcars"</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>,</span>
+<span>  x_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>,</span>
+<span>  y_vars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_cor.html">show_cor</a></span><span class="op">(</span><span class="va">mtcars</span>, vis_method <span class="op">=</span> <span class="st">"circle"</span>, p_adj <span class="op">=</span> <span class="st">"fdr"</span><span class="op">)</span></span>
+<span><span class="va">p1</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-91-1.png" width="95%"></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p1</span><span class="op">$</span><span class="va">cor</span></span>
+<span><span class="co">## $cor_mat</span></span>
+<span><span class="co">##        mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb</span></span>
+<span><span class="co">## mpg   1.00 -0.91 -0.91 -0.89  0.65 -0.89  0.47  0.71  0.56  0.54 -0.66</span></span>
+<span><span class="co">## cyl  -0.91  1.00  0.93  0.90 -0.68  0.86 -0.57 -0.81 -0.52 -0.56  0.58</span></span>
+<span><span class="co">## disp -0.91  0.93  1.00  0.85 -0.68  0.90 -0.46 -0.72 -0.62 -0.59  0.54</span></span>
+<span><span class="co">## hp   -0.89  0.90  0.85  1.00 -0.52  0.77 -0.67 -0.75 -0.36 -0.33  0.73</span></span>
+<span><span class="co">## drat  0.65 -0.68 -0.68 -0.52  1.00 -0.75  0.09  0.45  0.69  0.74 -0.13</span></span>
+<span><span class="co">## wt   -0.89  0.86  0.90  0.77 -0.75  1.00 -0.23 -0.59 -0.74 -0.68  0.50</span></span>
+<span><span class="co">## qsec  0.47 -0.57 -0.46 -0.67  0.09 -0.23  1.00  0.79 -0.20 -0.15 -0.66</span></span>
+<span><span class="co">## vs    0.71 -0.81 -0.72 -0.75  0.45 -0.59  0.79  1.00  0.17  0.28 -0.63</span></span>
+<span><span class="co">## am    0.56 -0.52 -0.62 -0.36  0.69 -0.74 -0.20  0.17  1.00  0.81 -0.06</span></span>
+<span><span class="co">## gear  0.54 -0.56 -0.59 -0.33  0.74 -0.68 -0.15  0.28  0.81  1.00  0.11</span></span>
+<span><span class="co">## carb -0.66  0.58  0.54  0.73 -0.13  0.50 -0.66 -0.63 -0.06  0.11  1.00</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## $p_mat</span></span>
+<span><span class="co">##               mpg          cyl         disp           hp         drat</span></span>
+<span><span class="co">## mpg  0.000000e+00 6.112687e-10 9.380327e-10 1.787835e-07 1.776240e-05</span></span>
+<span><span class="co">## cyl  6.112687e-10 0.000000e+00 1.802838e-12 3.477861e-09 8.244636e-06</span></span>
+<span><span class="co">## disp 9.380327e-10 1.802838e-12 0.000000e+00 7.142679e-08 5.282022e-06</span></span>
+<span><span class="co">## hp   1.787835e-07 3.477861e-09 7.142679e-08 0.000000e+00 9.988772e-03</span></span>
+<span><span class="co">## drat 1.776240e-05 8.244636e-06 5.282022e-06 9.988772e-03 0.000000e+00</span></span>
+<span><span class="co">## wt   1.293959e-10 1.217567e-07 1.222320e-11 4.145827e-05 4.784260e-06</span></span>
+<span><span class="co">## qsec 1.708199e-02 3.660533e-04 1.314404e-02 5.766253e-06 6.195826e-01</span></span>
+<span><span class="co">## vs   3.415937e-05 1.843018e-08 5.235012e-06 2.940896e-06 1.167553e-02</span></span>
+<span><span class="co">## am   2.850207e-04 2.151207e-03 3.662114e-04 1.798309e-01 4.726790e-06</span></span>
+<span><span class="co">## gear 5.400948e-03 4.173297e-03 9.635921e-04 4.930119e-01 8.360110e-06</span></span>
+<span><span class="co">## carb 1.084446e-03 1.942340e-03 2.526789e-02 7.827810e-07 6.211834e-01</span></span>
+<span><span class="co">##                wt         qsec           vs           am         gear</span></span>
+<span><span class="co">## mpg  1.293959e-10 1.708199e-02 3.415937e-05 2.850207e-04 5.400948e-03</span></span>
+<span><span class="co">## cyl  1.217567e-07 3.660533e-04 1.843018e-08 2.151207e-03 4.173297e-03</span></span>
+<span><span class="co">## disp 1.222320e-11 1.314404e-02 5.235012e-06 3.662114e-04 9.635921e-04</span></span>
+<span><span class="co">## hp   4.145827e-05 5.766253e-06 2.940896e-06 1.798309e-01 4.930119e-01</span></span>
+<span><span class="co">## drat 4.784260e-06 6.195826e-01 1.167553e-02 4.726790e-06 8.360110e-06</span></span>
+<span><span class="co">## wt   0.000000e+00 3.388683e-01 9.798492e-04 1.125440e-05 4.586601e-04</span></span>
+<span><span class="co">## qsec 3.388683e-01 0.000000e+00 1.029669e-06 2.056621e-01 2.425344e-01</span></span>
+<span><span class="co">## vs   9.798492e-04 1.029669e-06 0.000000e+00 3.570439e-01 2.579439e-01</span></span>
+<span><span class="co">## am   1.125440e-05 2.056621e-01 3.570439e-01 0.000000e+00 5.834043e-08</span></span>
+<span><span class="co">## gear 4.586601e-04 2.425344e-01 2.579439e-01 5.834043e-08 0.000000e+00</span></span>
+<span><span class="co">## carb 1.463861e-02 4.536949e-05 6.670496e-04 7.544526e-01 1.290291e-01</span></span>
+<span><span class="co">##              carb</span></span>
+<span><span class="co">## mpg  1.084446e-03</span></span>
+<span><span class="co">## cyl  1.942340e-03</span></span>
+<span><span class="co">## disp 2.526789e-02</span></span>
+<span><span class="co">## hp   7.827810e-07</span></span>
+<span><span class="co">## drat 6.211834e-01</span></span>
+<span><span class="co">## wt   1.463861e-02</span></span>
+<span><span class="co">## qsec 4.536949e-05</span></span>
+<span><span class="co">## vs   6.670496e-04</span></span>
+<span><span class="co">## am   7.544526e-01</span></span>
+<span><span class="co">## gear 1.290291e-01</span></span>
+<span><span class="co">## carb 0.000000e+00</span></span>
+<span><span class="va">p2</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-91-2.png" width="95%"></div>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">p3</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-91-3.png" width="95%"></div>
 </div>
 <div id="comprehensive-association" class="section level3" number="6.1.2">
 <h3>
@@ -164,14 +189,14 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <code><a href="https://rdrr.io/pkg/sigminer/man/show_sig_feature_corrplot.html">show_sig_feature_corrplot()</a></code>.</li>
 </ul>
 <p>Currently, I haven’t provided a proper example dataset for showing usage of all functions above (please read their documentation), here only the tidy dataset from our study <span class="citation">(<a href="references.html#ref-wang2021copy" role="doc-biblioref">Wang et al. 2021</a>)</span> is given to show the plot function.</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># The data is generated from Wang, Shixiang et al.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"asso_data.RData"</span>,
-  package <span class="op">=</span> <span class="st">"sigminer"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span><span class="op">)</span>
-<span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_sig_feature_corrplot.html">show_sig_feature_corrplot</a></span><span class="op">(</span><span class="va">tidy_data.seqz.feature</span>, p_val <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span>
-<span class="va">p</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-90-1.png" width="95%"></div>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># The data is generated from Wang, Shixiang et al.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"asso_data.RData"</span>,</span>
+<span>  package <span class="op">=</span> <span class="st">"sigminer"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_sig_feature_corrplot.html">show_sig_feature_corrplot</a></span><span class="op">(</span><span class="va">tidy_data.seqz.feature</span>, p_val <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="va">p</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-92-1.png" width="95%"></div>
 </div>
 </div>
 <div id="group-analysis-and-visualization" class="section level2" number="6.2">
@@ -184,140 +209,140 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <span class="header-section-number">6.2.1</span> Group Generation<a class="anchor" aria-label="anchor" href="#group-generation"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are multiple methods to generate groups, including ‘consensus’ (default, can be only used by result from <code><a href="https://rdrr.io/pkg/sigminer/man/sig_extract.html">sig_extract()</a></code>), ‘k-means’ etc. After determining groups, <strong>sigminer</strong> will assign each group to a signature with maximum fraction. We may say a group is <code>Sig_x</code> enriched.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="universal-analysis.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"simulated_catalogs"</span>)</span>
-<span id="cb79-2"><a href="universal-analysis.html#cb79-2" aria-hidden="true" tabindex="-1"></a>mt_sig <span class="ot">&lt;-</span> <span class="fu">sig_extract</span>(<span class="fu">t</span>(simulated_catalogs<span class="sc">$</span>set1), <span class="at">n_sig =</span> <span class="dv">10</span>, <span class="at">nrun =</span> <span class="dv">3</span>)</span>
-<span id="cb79-3"><a href="universal-analysis.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="do">## NMF algorithm: 'brunet'</span></span>
-<span id="cb79-4"><a href="universal-analysis.html#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple runs: 3</span></span>
-<span id="cb79-5"><a href="universal-analysis.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Mode: sequential [foreach:doParallelMC]</span></span>
-<span id="cb79-6"><a href="universal-analysis.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb79-7"><a href="universal-analysis.html#cb79-7" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
-<span id="cb79-8"><a href="universal-analysis.html#cb79-8" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                  <span class="er">|</span>   <span class="dv">0</span>%</span>
-<span id="cb79-9"><a href="universal-analysis.html#cb79-9" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
-<span id="cb79-10"><a href="universal-analysis.html#cb79-10" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|============</span>                                      <span class="er">|</span>  <span class="dv">25</span>%</span>
-<span id="cb79-11"><a href="universal-analysis.html#cb79-11" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
-<span id="cb79-12"><a href="universal-analysis.html#cb79-12" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|=========================</span>                         <span class="er">|</span>  <span class="dv">50</span>%</span>
-<span id="cb79-13"><a href="universal-analysis.html#cb79-13" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
-<span id="cb79-14"><a href="universal-analysis.html#cb79-14" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|======================================</span>            <span class="er">|</span>  <span class="dv">75</span>%</span>
-<span id="cb79-15"><a href="universal-analysis.html#cb79-15" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
-<span id="cb79-16"><a href="universal-analysis.html#cb79-16" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|==================================================|</span> <span class="dv">100</span>%</span>
-<span id="cb79-17"><a href="universal-analysis.html#cb79-17" aria-hidden="true" tabindex="-1"></a><span class="do">## System time:</span></span>
-<span id="cb79-18"><a href="universal-analysis.html#cb79-18" aria-hidden="true" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb79-19"><a href="universal-analysis.html#cb79-19" aria-hidden="true" tabindex="-1"></a><span class="do">##   4.901   0.016   4.927</span></span></code></pre></div>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mt_grps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">mt_sig</span>, method <span class="op">=</span> <span class="st">"consensus"</span>, match_consensus <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">## ℹ [2021-12-04 23:51:47]: Started.</span>
-<span class="co">## ✓ [2021-12-04 23:51:47]: 'Signature' object detected.</span>
-<span class="co">## ℹ [2021-12-04 23:51:47]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span>
-<span class="co">## ℹ [2021-12-04 23:51:47]: Finding the dominant signature of each group...</span>
-<span class="co">## =&gt; Generating a table of group and dominant signature:</span>
-<span class="co">##     </span>
-<span class="co">##      Sig1 Sig10 Sig2 Sig3 Sig4 Sig5 Sig7 Sig8 Sig9</span>
-<span class="co">##   1     0     2    0    2    0    0    0    0    0</span>
-<span class="co">##   10    1     0    0    1    0    4    0    0    0</span>
-<span class="co">##   2     0     0    1    0    0    0    0    0    0</span>
-<span class="co">##   3     1     0    0    0    0    0    0    0    0</span>
-<span class="co">##   4     1     0    1    0    2    0    0    0    0</span>
-<span class="co">##   5     0     0    0    0    0    0    0    1    0</span>
-<span class="co">##   6     1     0    1    0    0    0    2    0    0</span>
-<span class="co">##   7     0     0    0    0    0    0    0    0    3</span>
-<span class="co">##   8     0     0    1    4    0    0    0    0    0</span>
-<span class="co">##   9     1     0    0    0    0    0    0    0    0</span>
-<span class="co">## =&gt; Assigning a group to a signature with the maxium fraction (stored in 'map_table' attr)...</span>
-<span class="co">## ℹ [2021-12-04 23:51:47]: Summarizing...</span>
-<span class="co">##  group #1: 4 samples with Sig10 enriched.</span>
-<span class="co">##  group #10: 6 samples with Sig5 enriched.</span>
-<span class="co">##  group #2: 1 samples with Sig2 enriched.</span>
-<span class="co">##  group #3: 1 samples with Sig1 enriched.</span>
-<span class="co">##  group #4: 4 samples with Sig4 enriched.</span>
-<span class="co">##  group #5: 1 samples with Sig8 enriched.</span>
-<span class="co">##  group #6: 4 samples with Sig7 enriched.</span>
-<span class="co">##  group #7: 3 samples with Sig9 enriched.</span>
-<span class="co">##  group #8: 5 samples with Sig3 enriched.</span>
-<span class="co">##  group #9: 1 samples with Sig1 enriched.</span>
-<span class="co">## ! [2021-12-04 23:51:47]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
-<span class="co">## ℹ [2021-12-04 23:51:47]: 0.06 secs elapsed.</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mt_grps</span><span class="op">)</span>
-<span class="co">##       sample group silhouette_width enrich_sig</span>
-<span class="co">## 1: Sample_14     1         6.67e-01      Sig10</span>
-<span class="co">## 2:  Sample_6     1         0.00e+00      Sig10</span>
-<span class="co">## 3:  Sample_2     1         1.00e+00      Sig10</span>
-<span class="co">## 4:  Sample_5     1         0.00e+00      Sig10</span>
-<span class="co">## 5: Sample_22     2         1.00e+00       Sig2</span>
-<span class="co">## 6: Sample_12     3         1.67e-16       Sig1</span></code></pre></div>
-<p>The returned sample orders match sample orders in clustered consensus matrix.</p>
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_sig_consensusmap.html">show_sig_consensusmap</a></span><span class="op">(</span><span class="va">mt_sig</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-93-1.png" width="95%"></div>
-<p>Sometimes, the mapping between groups and enriched signatures may not right. Users should check it and even correct it manually.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="universal-analysis.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"simulated_catalogs"</span>)</span>
+<span id="cb81-2"><a href="universal-analysis.html#cb81-2" aria-hidden="true" tabindex="-1"></a>mt_sig <span class="ot">&lt;-</span> <span class="fu">sig_extract</span>(<span class="fu">t</span>(simulated_catalogs<span class="sc">$</span>set1), <span class="at">n_sig =</span> <span class="dv">10</span>, <span class="at">nrun =</span> <span class="dv">3</span>)</span>
+<span id="cb81-3"><a href="universal-analysis.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="do">## NMF algorithm: 'brunet'</span></span>
+<span id="cb81-4"><a href="universal-analysis.html#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Multiple runs: 3</span></span>
+<span id="cb81-5"><a href="universal-analysis.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Mode: sequential [foreach:doParallelMC]</span></span>
+<span id="cb81-6"><a href="universal-analysis.html#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb81-7"><a href="universal-analysis.html#cb81-7" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
+<span id="cb81-8"><a href="universal-analysis.html#cb81-8" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                  <span class="er">|</span>   <span class="dv">0</span>%</span>
+<span id="cb81-9"><a href="universal-analysis.html#cb81-9" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
+<span id="cb81-10"><a href="universal-analysis.html#cb81-10" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|============</span>                                      <span class="er">|</span>  <span class="dv">25</span>%</span>
+<span id="cb81-11"><a href="universal-analysis.html#cb81-11" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
+<span id="cb81-12"><a href="universal-analysis.html#cb81-12" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|=========================</span>                         <span class="er">|</span>  <span class="dv">50</span>%</span>
+<span id="cb81-13"><a href="universal-analysis.html#cb81-13" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
+<span id="cb81-14"><a href="universal-analysis.html#cb81-14" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|======================================</span>            <span class="er">|</span>  <span class="dv">75</span>%</span>
+<span id="cb81-15"><a href="universal-analysis.html#cb81-15" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|</span>                                                        </span>
+<span id="cb81-16"><a href="universal-analysis.html#cb81-16" aria-hidden="true" tabindex="-1"></a>Runs<span class="sc">:</span> <span class="er">|==================================================|</span> <span class="dv">100</span>%</span>
+<span id="cb81-17"><a href="universal-analysis.html#cb81-17" aria-hidden="true" tabindex="-1"></a><span class="do">## System time:</span></span>
+<span id="cb81-18"><a href="universal-analysis.html#cb81-18" aria-hidden="true" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
+<span id="cb81-19"><a href="universal-analysis.html#cb81-19" aria-hidden="true" tabindex="-1"></a><span class="do">##   5.108   0.031   5.148</span></span></code></pre></div>
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">mt_grps</span>, <span class="st">"map_table"</span><span class="op">)</span>
-<span class="co">##     </span>
-<span class="co">##      Sig1 Sig10 Sig2 Sig3 Sig4 Sig5 Sig7 Sig8 Sig9</span>
-<span class="co">##   1     0     2    0    2    0    0    0    0    0</span>
-<span class="co">##   10    1     0    0    1    0    4    0    0    0</span>
-<span class="co">##   2     0     0    1    0    0    0    0    0    0</span>
-<span class="co">##   3     1     0    0    0    0    0    0    0    0</span>
-<span class="co">##   4     1     0    1    0    2    0    0    0    0</span>
-<span class="co">##   5     0     0    0    0    0    0    0    1    0</span>
-<span class="co">##   6     1     0    1    0    0    0    2    0    0</span>
-<span class="co">##   7     0     0    0    0    0    0    0    0    3</span>
-<span class="co">##   8     0     0    1    4    0    0    0    0    0</span>
-<span class="co">##   9     1     0    0    0    0    0    0    0    0</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mt_grps</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">mt_sig</span>, method <span class="op">=</span> <span class="st">"consensus"</span>, match_consensus <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:04]: Started.</span></span>
+<span><span class="co">## ✔ [2022-08-29 12:00:04]: 'Signature' object detected.</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:04]: Obtaining clusters from the hierarchical clustering of the consensus matrix...</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:04]: Finding the dominant signature of each group...</span></span>
+<span><span class="co">## =&gt; Generating a table of group and dominant signature:</span></span>
+<span><span class="co">##     </span></span>
+<span><span class="co">##      Sig1 Sig10 Sig2 Sig3 Sig4 Sig5 Sig7 Sig8 Sig9</span></span>
+<span><span class="co">##   1     0     2    0    2    0    0    0    0    0</span></span>
+<span><span class="co">##   10    1     0    0    1    0    4    0    0    0</span></span>
+<span><span class="co">##   2     0     0    1    0    0    0    0    0    0</span></span>
+<span><span class="co">##   3     1     0    0    0    0    0    0    0    0</span></span>
+<span><span class="co">##   4     1     0    1    0    2    0    0    0    0</span></span>
+<span><span class="co">##   5     0     0    0    0    0    0    0    1    0</span></span>
+<span><span class="co">##   6     1     0    1    0    0    0    2    0    0</span></span>
+<span><span class="co">##   7     0     0    0    0    0    0    0    0    3</span></span>
+<span><span class="co">##   8     0     0    1    4    0    0    0    0    0</span></span>
+<span><span class="co">##   9     1     0    0    0    0    0    0    0    0</span></span>
+<span><span class="co">## =&gt; Assigning a group to a signature with the maxium fraction (stored in 'map_table' attr)...</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Summarizing...</span></span>
+<span><span class="co">##  group #1: 4 samples with Sig10 enriched.</span></span>
+<span><span class="co">##  group #10: 6 samples with Sig5 enriched.</span></span>
+<span><span class="co">##  group #2: 1 samples with Sig2 enriched.</span></span>
+<span><span class="co">##  group #3: 1 samples with Sig1 enriched.</span></span>
+<span><span class="co">##  group #4: 4 samples with Sig4 enriched.</span></span>
+<span><span class="co">##  group #5: 1 samples with Sig8 enriched.</span></span>
+<span><span class="co">##  group #6: 4 samples with Sig7 enriched.</span></span>
+<span><span class="co">##  group #7: 3 samples with Sig9 enriched.</span></span>
+<span><span class="co">##  group #8: 5 samples with Sig3 enriched.</span></span>
+<span><span class="co">##  group #9: 1 samples with Sig1 enriched.</span></span>
+<span><span class="co">## ! [2022-08-29 12:00:05]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: 0.072 secs elapsed.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mt_grps</span><span class="op">)</span></span>
+<span><span class="co">##       sample group silhouette_width enrich_sig</span></span>
+<span><span class="co">## 1: Sample_14     1         6.67e-01      Sig10</span></span>
+<span><span class="co">## 2:  Sample_6     1         0.00e+00      Sig10</span></span>
+<span><span class="co">## 3:  Sample_2     1         1.00e+00      Sig10</span></span>
+<span><span class="co">## 4:  Sample_5     1         0.00e+00      Sig10</span></span>
+<span><span class="co">## 5: Sample_22     2         1.00e+00       Sig2</span></span>
+<span><span class="co">## 6: Sample_12     3         1.67e-16       Sig1</span></span></code></pre></div>
+<p>The returned sample orders match sample orders in clustered consensus matrix.</p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_sig_consensusmap.html">show_sig_consensusmap</a></span><span class="op">(</span><span class="va">mt_sig</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-95-1.png" width="95%"></div>
+<p>Sometimes, the mapping between groups and enriched signatures may not right. Users should check it and even correct it manually.</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html">attr</a></span><span class="op">(</span><span class="va">mt_grps</span>, <span class="st">"map_table"</span><span class="op">)</span></span>
+<span><span class="co">##     </span></span>
+<span><span class="co">##      Sig1 Sig10 Sig2 Sig3 Sig4 Sig5 Sig7 Sig8 Sig9</span></span>
+<span><span class="co">##   1     0     2    0    2    0    0    0    0    0</span></span>
+<span><span class="co">##   10    1     0    0    1    0    4    0    0    0</span></span>
+<span><span class="co">##   2     0     0    1    0    0    0    0    0    0</span></span>
+<span><span class="co">##   3     1     0    0    0    0    0    0    0    0</span></span>
+<span><span class="co">##   4     1     0    1    0    2    0    0    0    0</span></span>
+<span><span class="co">##   5     0     0    0    0    0    0    0    1    0</span></span>
+<span><span class="co">##   6     1     0    1    0    0    0    2    0    0</span></span>
+<span><span class="co">##   7     0     0    0    0    0    0    0    0    3</span></span>
+<span><span class="co">##   8     0     0    1    4    0    0    0    0    0</span></span>
+<span><span class="co">##   9     1     0    0    0    0    0    0    0    0</span></span></code></pre></div>
 </div>
 <div id="group-comparison-analysis" class="section level3" number="6.2.2">
 <h3>
 <span class="header-section-number">6.2.2</span> Group Comparison Analysis<a class="anchor" aria-label="anchor" href="#group-comparison-analysis"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"toy_copynumber_signature_by_W.RData"</span>,
-  package <span class="op">=</span> <span class="st">"sigminer"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span><span class="op">)</span>
-<span class="co"># Assign samples to clusters</span>
-<span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">sig</span>, method <span class="op">=</span> <span class="st">"k-means"</span><span class="op">)</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: Started.</span>
-<span class="co">## ✓ [2021-12-04 23:51:48]: 'Signature' object detected.</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: Running k-means with 2 clusters...</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: Generating a table of group and signature contribution (stored in 'map_table' attr):</span>
-<span class="co">##        Sig1      Sig2</span>
-<span class="co">## 1 0.2097559 0.7901116</span>
-<span class="co">## 2 0.8964984 0.1035016</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: Assigning a group to a signature with the maximum fraction...</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: Summarizing...</span>
-<span class="co">##  group #1: 2 samples with Sig2 enriched.</span>
-<span class="co">##  group #2: 8 samples with Sig1 enriched.</span>
-<span class="co">## ! [2021-12-04 23:51:48]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span>
-<span class="co">## ℹ [2021-12-04 23:51:48]: 0.031 secs elapsed.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span>
-<span class="va">groups</span><span class="op">$</span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>
-<span class="va">groups</span><span class="op">$</span><span class="va">new_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="cn">NA</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">groups</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co"># Compare groups (filter NAs for categorical coloumns)</span>
-<span class="va">groups.cmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_group_comparison.html">get_group_comparison</a></span><span class="op">(</span><span class="va">groups</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>,
-  col_group <span class="op">=</span> <span class="st">"group"</span>,
-  cols_to_compare <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"prob"</span>, <span class="st">"new_group"</span><span class="op">)</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"co"</span>, <span class="st">"ca"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="co">## Treat prob as continuous variable.</span>
-<span class="co">## Treat new_group as categorical variable.</span>
-<span class="co"># Compare groups (Set NAs of categorical columns to 'Rest')</span>
-<span class="va">groups.cmp2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_group_comparison.html">get_group_comparison</a></span><span class="op">(</span><span class="va">groups</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>,
-  col_group <span class="op">=</span> <span class="st">"group"</span>,
-  cols_to_compare <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"prob"</span>, <span class="st">"new_group"</span><span class="op">)</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"co"</span>, <span class="st">"ca"</span><span class="op">)</span>, NAs <span class="op">=</span> <span class="st">"Rest"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span>
-<span class="co">## Treat prob as continuous variable.</span>
-<span class="co">## Treat new_group as categorical variable.</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"toy_copynumber_signature_by_W.RData"</span>,</span>
+<span>  package <span class="op">=</span> <span class="st">"sigminer"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co"># Assign samples to clusters</span></span>
+<span><span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_groups.html">get_groups</a></span><span class="op">(</span><span class="va">sig</span>, method <span class="op">=</span> <span class="st">"k-means"</span><span class="op">)</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Started.</span></span>
+<span><span class="co">## ✔ [2022-08-29 12:00:05]: 'Signature' object detected.</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Running k-means with 2 clusters...</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Generating a table of group and signature contribution (stored in 'map_table' attr):</span></span>
+<span><span class="co">##        Sig1      Sig2</span></span>
+<span><span class="co">## 1 0.2097559 0.7901116</span></span>
+<span><span class="co">## 2 0.8964984 0.1035016</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Assigning a group to a signature with the maximum fraction...</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: Summarizing...</span></span>
+<span><span class="co">##  group #1: 2 samples with Sig2 enriched.</span></span>
+<span><span class="co">##  group #2: 8 samples with Sig1 enriched.</span></span>
+<span><span class="co">## ! [2022-08-29 12:00:05]: The 'enrich_sig' column is set to dominant signature in one group, please check and make it consistent with biological meaning (correct it by hand if necessary).</span></span>
+<span><span class="co">## ℹ [2022-08-29 12:00:05]: 0.031 secs elapsed.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span>
+<span><span class="va">groups</span><span class="op">$</span><span class="va">prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="va">groups</span><span class="op">$</span><span class="va">new_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>, <span class="st">"4"</span>, <span class="cn">NA</span><span class="op">)</span>, size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">groups</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Compare groups (filter NAs for categorical coloumns)</span></span>
+<span><span class="va">groups.cmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_group_comparison.html">get_group_comparison</a></span><span class="op">(</span><span class="va">groups</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  col_group <span class="op">=</span> <span class="st">"group"</span>,</span>
+<span>  cols_to_compare <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"prob"</span>, <span class="st">"new_group"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"co"</span>, <span class="st">"ca"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">## Treat prob as continuous variable.</span></span>
+<span><span class="co">## Treat new_group as categorical variable.</span></span>
+<span><span class="co"># Compare groups (Set NAs of categorical columns to 'Rest')</span></span>
+<span><span class="va">groups.cmp2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/get_group_comparison.html">get_group_comparison</a></span><span class="op">(</span><span class="va">groups</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>  col_group <span class="op">=</span> <span class="st">"group"</span>,</span>
+<span>  cols_to_compare <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"prob"</span>, <span class="st">"new_group"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"co"</span>, <span class="st">"ca"</span><span class="op">)</span>, NAs <span class="op">=</span> <span class="st">"Rest"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">## Treat prob as continuous variable.</span></span>
+<span><span class="co">## Treat new_group as categorical variable.</span></span></code></pre></div>
 </div>
 <div id="group-visualization" class="section level3" number="6.2.3">
 <h3>
 <span class="header-section-number">6.2.3</span> Group Visualization<a class="anchor" aria-label="anchor" href="#group-visualization"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ggcomp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_group_comparison.html">show_group_comparison</a></span><span class="op">(</span><span class="va">groups.cmp2</span><span class="op">)</span>
-<span class="va">ggcomp</span><span class="op">$</span><span class="va">co_comb</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-96-1.png" width="95%"></div>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ggcomp</span><span class="op">$</span><span class="va">ca_comb</span></code></pre></div>
-<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-96-2.png" width="95%"></div>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ggcomp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/sigminer/man/show_group_comparison.html">show_group_comparison</a></span><span class="op">(</span><span class="va">groups.cmp2</span><span class="op">)</span></span>
+<span><span class="va">ggcomp</span><span class="op">$</span><span class="va">co_comb</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-98-1.png" width="95%"></div>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ggcomp</span><span class="op">$</span><span class="va">ca_comb</span></span></code></pre></div>
+<div class="inline-figure"><img src="sigminer_files/figure-html/unnamed-chunk-98-2.png" width="95%"></div>
 </div>
 </div>
 </div>
@@ -357,7 +382,7 @@ there are several functions available in <strong>sigminer</strong>:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2021-12-04.</p>
+    <p>"<strong>Extract, Analyze and Visualize Mutational Signatures with Sigminer</strong>" was written by Shixiang Wang, PhD (Sun Yat-sen University Cancer Center), Xue-Song Liu, PhD (ShanghaiTech University). It was last built on 2022-08-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -370,7 +395,7 @@ there are several functions available in <strong>sigminer</strong>:</p>
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
